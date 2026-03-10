@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demian Buscatti | Web Developer & Digital Creator</title>
+    <meta
+      name="description"
+      content="Portfolio premium di un freelance web developer e digital creator: siti moderni, UI raffinate, applicazioni web performanti ed esperienze digitali memorabili."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-noise"></div>
+    <div class="ambient ambient-a"></div>
+    <div class="ambient ambient-b"></div>
+    <div class="ambient ambient-c"></div>
+
+    <header class="site-header">
+      <div class="header-shell">
+        <a class="brand" href="#top" aria-label="Demian Buscatti home">
+          <span class="brand-mark">
+            <img src="logo-demian-buscatti.svg" alt="Demian Buscatti logo" />
+          </span>
+          <span class="brand-copy">
+            <strong>Demian Buscatti</strong>
+            <span>Web Developer & Digital Creator</span>
+          </span>
+        </a>
+
+        <nav class="desktop-nav" aria-label="Navigazione principale">
+          <a href="#portfolio">Portfolio</a>
+          <a href="#process">Processo</a>
+          <a href="#skills">Competenze</a>
+          <a href="#pricing">Costi</a>
+          <a href="#contact">Contatti</a>
+        </nav>
+
+        <div class="header-actions">
+          <div class="lang-switch" aria-label="Selezione lingua">
+            <a class="is-active" href="index.html" lang="it">ITA</a>
+            <a href="index-en.html" lang="en">ENG</a>
+          </div>
+          <button class="btn btn-primary" type="button" data-open-contact-modal="true">Parliamo del progetto</button>
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Apri menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+
+      <nav class="mobile-nav" id="mobileNav" aria-label="Menu mobile">
+        <a href="#portfolio">Portfolio</a>
+        <a href="#process">Processo</a>
+        <a href="#skills">Competenze</a>
+        <a href="#pricing">Costi</a>
+        <a href="#contact">Contatti</a>
+        <button class="btn btn-primary mobile-cta" type="button" data-open-contact-modal="true">Parliamo del progetto</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero-section" id="top">
+        <div class="hero-grid-lines"></div>
+        <div class="particles" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+
+        <div class="section-shell hero-shell">
+          <div class="hero-copy reveal">
+            <span class="eyebrow">Esperienze digitali moderne • UI raffinate • Performance reali</span>
+            <h1>Creo esperienze digitali moderne, performanti e memorabili.</h1>
+            <p>
+              Progetto e sviluppo siti, ecommerce e applicazioni web con un approccio che unisce design system,
+              animazioni sofisticate, performance solide e una forte attenzione al dettaglio visivo.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#portfolio">Guarda i progetti</a>
+              <button class="btn btn-outline" type="button" data-open-call-modal="true">Richiedi una call</button>
+            </div>
+            <div class="hero-metrics">
+              <article>
+                <strong>30+</strong>
+                <span>progetti lanciati</span>
+              </article>
+              <article>
+                <strong>95+</strong>
+                <span>score Lighthouse medio</span>
+              </article>
+              <article>
+                <strong>6 anni</strong>
+                <span>tra sviluppo e UI design</span>
+              </article>
+            </div>
+          </div>
+
+          <div class="hero-visual reveal delay-1">
+            <div class="orbital orbital-a"></div>
+            <div class="orbital orbital-b"></div>
+            <div class="glass-card code-card">
+              <div class="glass-topline">
+                <span></span><span></span><span></span>
+              </div>
+              <div class="code-lines">
+                <div><small>interface</small> ProductExperience <small>{</small></div>
+                <div><span>motion:</span> <em>"fluid"</em>;</div>
+                <div><span>frontend:</span> <em>"performant"</em>;</div>
+                <div><span>visuals:</span> <em>"premium"</em>;</div>
+                <div><span>delivery:</span> <em>"production-ready"</em>;</div>
+                <div><small>}</small></div>
+              </div>
+            </div>
+            <div class="glass-card stack-card">
+              <span class="eyebrow muted">Stack preferito</span>
+              <strong>HTML / CSS / JS</strong>
+              <strong>React / Node</strong>
+              <strong>Python / Flask</strong>
+              <p>Dal concept alla messa online, con un workflow rapido e pulito.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-intro">
+        <div class="section-shell intro-layout">
+          <div class="intro-copy reveal">
+            <span class="eyebrow">Approccio</span>
+            <h2>Design e sviluppo come un unico sistema, non come due fasi scollegate.</h2>
+            <p>
+              Lavoro su interfacce contemporanee, architetture chiare e microinterazioni pensate per dare ritmo,
+              fiducia e memorabilità al prodotto digitale. Ogni progetto nasce per apparire premium e funzionare con rigore.
+            </p>
+          </div>
+          <div class="intro-panels reveal delay-1">
+            <article class="glass-panel">
+              <span>UX rigorosa</span>
+              <strong>Flow leggibili, gerarchie nitide e scelte coerenti.</strong>
+            </article>
+            <article class="glass-panel">
+              <span>Frontend di livello</span>
+              <strong>Interfacce reattive, animate e ottimizzate per ogni viewport.</strong>
+            </article>
+            <article class="glass-panel">
+              <span>Backend personalizzato</span>
+              <strong>Form interattivi e integrazioni studiate per ogni esigenza.</strong>
+            </article>
+            <article class="glass-panel">
+              <span>Consegna concreta</span>
+              <strong>Codice mantenibile, scalabile e pronto per portfolio o clienti reali.</strong>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section portfolio-section" id="portfolio">
+        <div class="section-shell">
+          <div class="section-heading reveal">
+            <span class="eyebrow">Portfolio</span>
+            <h2>Progetti progettati per farsi ricordare e funzionare davvero.</h2>
+          </div>
+
+          <div class="portfolio-grid">
+            <article class="project-card large reveal">
+              <a class="project-media" href="https://01121987r-beep.github.io/ristorante-elegante/" target="_blank" rel="noreferrer">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80" alt="Anteprima sito Ristorante Elegante" />
+                <div class="project-overlay compact">
+                  <span>Case study</span>
+                  <h3>Ristorante Elegante</h3>
+                  <p>Sito ristorante premium con atmosfera cinematografica, menu immersivo e navigazione curata per desktop e mobile.</p>
+                  <div class="project-tags"><span>Restaurant UX</span><span>Visual Impact</span><span>Luxury UI</span></div>
+                </div>
+              </a>
+            </article>
+
+            <article class="project-card reveal delay-1">
+              <a class="project-media" href="https://01121987r-beep.github.io/aurea-atelier/" target="_blank" rel="noreferrer">
+                <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1400&q=80" alt="Anteprima sito Aurea Atelier" />
+                <div class="project-overlay compact">
+                  <span>Fashion</span>
+                  <h3>Aurea Atelier</h3>
+                  <p>Sito elegante per atelier con identità raffinata, visual d’impatto e presentazione premium della collezione.</p>
+                  <div class="project-tags"><span>Luxury UI</span><span>Brand Story</span><span>Editorial Layout</span></div>
+                </div>
+              </a>
+            </article>
+
+            <article class="project-card reveal delay-2">
+              <a class="project-media" href="https://01121987r-beep.github.io/studio-dentistico/" target="_blank" rel="noreferrer">
+                <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1400&q=80" alt="Anteprima sito Studio Dentistico" />
+                <div class="project-overlay compact">
+                  <span>Medical</span>
+                  <h3>Studio Dentistico</h3>
+                  <p>Sito professionale per studio dentistico con visual pulito, recensioni dinamiche e struttura orientata al contatto.</p>
+                  <div class="project-tags"><span>Healthcare UI</span><span>Trust Design</span><span>Lead Form</span></div>
+                </div>
+              </a>
+            </article>
+
+            <article class="project-showcase reveal delay-1">
+              <a class="project-mini-card" href="https://01121987r-beep.github.io/studio-aurora-site/" target="_blank" rel="noreferrer">
+                <div class="project-media">
+                  <img src="https://images.unsplash.com/photo-1516302752625-fcc3c50ae61f?auto=format&fit=crop&w=1200&q=80" alt="Anteprima sito Studio Aurora" />
+                  <div class="project-overlay compact">
+                    <span>Psychology</span>
+                    <h3>Studio Aurora</h3>
+                    <p>Sito professionale per psicologo, layout puzzle raffinato e doppia lingua.</p>
+                    <div class="project-tags"><span>HTML</span><span>UI</span><span>Bilingual</span></div>
+                  </div>
+                </div>
+              </a>
+
+              <a class="project-mini-card" href="https://01121987r-beep.github.io/pizzeria-gourmet/" target="_blank" rel="noreferrer">
+                <div class="project-media">
+                  <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1200&q=80" alt="Anteprima sito Pizzeria Gourmet" />
+                  <div class="project-overlay compact">
+                    <span>Restaurant</span>
+                    <h3>Pizzeria Gourmet</h3>
+                    <p>Esperienza editoriale full-width con menu popup, CTA dinamiche e gallery immersiva.</p>
+                    <div class="project-tags"><span>Motion</span><span>Branding</span><span>Conversion</span></div>
+                  </div>
+                </div>
+              </a>
+
+              <a class="project-mini-card" href="https://01121987r-beep.github.io/centro-spa-premium/" target="_blank" rel="noreferrer">
+                <div class="project-media">
+                  <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=1200&q=80" alt="Anteprima sito Centro Spa Premium" />
+                  <div class="project-overlay compact">
+                    <span>Wellness</span>
+                    <h3>Centro Spa Premium</h3>
+                    <p>Visual luxury, form popup e struttura pensata per un’esperienza beauty high-end.</p>
+                    <div class="project-tags"><span>Luxury UI</span><span>SEO</span><span>Lead Form</span></div>
+                  </div>
+                </div>
+              </a>
+
+              <a class="project-mini-card" href="https://01121987r-beep.github.io/agenzia-viaggi/" target="_blank" rel="noreferrer">
+                <div class="project-media">
+                  <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80" alt="Anteprima sito Agenzia Viaggi" />
+                  <div class="project-overlay compact">
+                    <span>Travel</span>
+                    <h3>Agenzia Viaggi</h3>
+                    <p>Layout fresco e premium con popup richiesta info e pacchetti vacanza interattivi.</p>
+                    <div class="project-tags"><span>Travel UX</span><span>Pop-up</span><span>Hover FX</span></div>
+                  </div>
+                </div>
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section process-section" id="process">
+        <div class="section-shell">
+          <div class="section-heading reveal">
+            <span class="eyebrow">Processo di lavoro</span>
+            <h2>Un processo che combina design, sviluppo e tecnologia per trasformare un’idea in un prodotto digitale performante.</h2>
+          </div>
+
+          <div class="timeline">
+            <article class="timeline-step reveal">
+              <span>01</span>
+              <div>
+                <h3>Analisi del progetto</h3>
+                <p>Obiettivi, pubblico, benchmark e priorità. Prima chiarezza strategica, poi esecuzione.</p>
+              </div>
+            </article>
+            <article class="timeline-step reveal delay-1">
+              <span>02</span>
+              <div>
+                <h3>Progettazione UX/UI</h3>
+                <p>Wireframe, gerarchie visive, linguaggio grafico e pattern coerenti con il brand.</p>
+              </div>
+            </article>
+            <article class="timeline-step reveal delay-2">
+              <span>03</span>
+              <div>
+                <h3>Sviluppo e implementazione</h3>
+                <p>Frontend curato, responsive pulito, ottimizzazione e interazioni che alzano la percezione del prodotto.</p>
+              </div>
+            </article>
+            <article class="timeline-step reveal delay-3">
+              <span>04</span>
+              <div>
+                <h3>Lancio del progetto</h3>
+                <p>Test finali, pubblicazione, controllo qualità e supporto per rifinire i dettagli post-go-live.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section skills-section" id="skills">
+        <div class="section-shell skills-layout">
+          <div class="section-heading reveal">
+            <span class="eyebrow">Competenze tecniche</span>
+            <h2>Tecnologie e strumenti scelti per costruire prodotti moderni e credibili.</h2>
+          </div>
+
+          <div class="skills-grid reveal delay-1">
+            <article class="skill-chip skill-flip-card">
+              <div class="skill-flip-inner">
+                <div class="skill-face skill-front">
+                  <strong>HTML</strong>
+                  <span> semantica e SEO</span>
+                </div>
+                <div class="skill-face skill-back">
+                  <p>Codice <strong>HTML</strong> semantico per siti più chiari e indicizzati</p>
+                </div>
+              </div>
+            </article>
+            <article class="skill-chip skill-flip-card">
+              <div class="skill-flip-inner">
+                <div class="skill-face skill-front">
+                  <strong>CSS</strong>
+                  <span> layout, motion, design system</span>
+                </div>
+                <div class="skill-face skill-back">
+                  <p>Layout <strong>CSS</strong> moderni, animazioni fluide e stile coerente</p>
+                </div>
+              </div>
+            </article>
+            <article class="skill-chip skill-flip-card">
+              <div class="skill-flip-inner">
+                <div class="skill-face skill-front">
+                  <strong>JavaScript</strong>
+                  <span> UI dinamiche e logiche interattive</span>
+                </div>
+                <div class="skill-face skill-back">
+                  <p><strong>UI</strong> dinamiche e comportamenti interattivi gestiti con JavaScript</p>
+                </div>
+              </div>
+            </article>
+            <article class="skill-chip skill-flip-card">
+              <div class="skill-flip-inner">
+                <div class="skill-face skill-front">
+                  <strong>React</strong>
+                  <span> componenti e architetture scalabili</span>
+                </div>
+                <div class="skill-face skill-back">
+                  <p>Componenti <strong>REACT</strong> modulari progettati per architetture scalabili moderne</p>
+                </div>
+              </div>
+            </article>
+            <article class="skill-chip skill-flip-card">
+              <div class="skill-flip-inner">
+                <div class="skill-face skill-front">
+                  <strong>Python</strong>
+                  <span> tooling, backend e automazioni</span>
+                </div>
+                <div class="skill-face skill-back">
+                  <p>Backend e automazioni sviluppate con ecosistema <strong>PYTHON</strong></p>
+                </div>
+              </div>
+            </article>
+            <article class="skill-chip skill-flip-card">
+              <div class="skill-flip-inner">
+                <div class="skill-face skill-front">
+                  <strong>Flask</strong>
+                  <span> applicazioni snelle e custom</span>
+                </div>
+                <div class="skill-face skill-back">
+                  <p>Applicazioni <strong>FLASK</strong> modulari per progetti web flessibili e custom</p>
+                </div>
+              </div>
+            </article>
+            <article class="skill-chip skill-flip-card">
+              <div class="skill-flip-inner">
+                <div class="skill-face skill-front">
+                  <strong>Node</strong>
+                  <span> API e sviluppo full-stack</span>
+                </div>
+                <div class="skill-face skill-back">
+                  <p>Integrazioni <strong>API</strong> Node per applicazioni web complete full-stack</p>
+                </div>
+              </div>
+            </article>
+            <article class="skill-chip skill-flip-card">
+              <div class="skill-flip-inner">
+                <div class="skill-face skill-front">
+                  <strong>UI Design</strong>
+                  <span> interfacce premium e consistenti</span>
+                </div>
+                <div class="skill-face skill-back">
+                  <p>Design di <strong>UI</strong> eleganti pensate per chiarezza e armonia visiva</p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="skill-pills reveal delay-2">
+            <article class="skill-pill quality-metric" data-fill="92">
+              <h3>Frontend Architecture</h3>
+              <p>Componenti modulari e strutture scalabili pensate per crescere nel tempo.</p>
+              <strong>Scalabilità elevata</strong>
+              <div class="quality-meter" aria-hidden="true">
+                <span class="quality-meter-fill"></span>
+              </div>
+            </article>
+            <article class="skill-pill quality-metric" data-fill="88">
+              <h3>Motion & Interaction</h3>
+              <p>Micro-interazioni e animazioni fluide per esperienze coinvolgenti.</p>
+              <strong>Interazioni fluide</strong>
+              <div class="quality-meter" aria-hidden="true">
+                <span class="quality-meter-fill"></span>
+              </div>
+            </article>
+            <article class="skill-pill quality-metric" data-fill="90">
+              <h3>UI Craft</h3>
+              <p>Interfacce curate e design system coerenti per prodotti chiari.</p>
+              <strong>Coerenza visiva</strong>
+              <div class="quality-meter" aria-hidden="true">
+                <span class="quality-meter-fill"></span>
+              </div>
+            </article>
+            <article class="skill-pill quality-metric" data-fill="91">
+              <h3>Performance Optimization</h3>
+              <p>Codice ottimizzato per velocità e prestazioni elevate.</p>
+              <strong>Performance elevate</strong>
+              <div class="quality-meter" aria-hidden="true">
+                <span class="quality-meter-fill"></span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section pricing-section" id="pricing">
+        <div class="section-shell">
+          <div class="section-heading reveal">
+            <span class="eyebrow">Costi</span>
+            <h2>Quattro fasce progettuali per adattare design, sviluppo e livello di esperienza al tipo di sito.</h2>
+          </div>
+
+          <div class="pricing-grid">
+            <article class="pricing-card reveal has-price">
+              <span class="pricing-label">Portfolio</span>
+              <h3>Landing Page</h3>
+              <p>Sito web a pagina singola progettato per presentare un servizio, un prodotto o un’offerta in modo chiaro e visivamente efficace.</p>
+              <p>La struttura è organizzata in sezioni scorrevoli che guidano l’utente tra presentazione, servizi, vantaggi e call to action, fino a un form di contatto dedicato.</p>
+              <p>È una soluzione ideale per lanci rapidi, campagne promozionali e per chi desidera un sito portfolio semplice ma professionale, capace di comunicare immediatamente il valore dell’attività e facilitare il contatto con nuovi clienti.</p>
+              <div class="pricing-target">
+                <strong>Ideale per:</strong>
+                <ul>
+                  <li>professionisti</li>
+                  <li>freelance</li>
+                  <li>attività locali</li>
+                  <li>consulenti</li>
+                  <li>piccoli business che vogliono una presenza online moderna e immediata</li>
+                </ul>
+              </div>
+              <span class="pricing-badge">da 149 €</span>
+            </article>
+
+            <article class="pricing-card reveal delay-1 has-price">
+              <span class="pricing-label">Business</span>
+              <h3>Sito Web</h3>
+              <p>Siti web strutturati con più pagine dedicate a presentare in modo completo l’azienda, i servizi offerti e i contenuti informativi.</p>
+              <p>La struttura multipagina permette di organizzare le informazioni in modo chiaro e intuitivo, migliorando l’esperienza di navigazione e facilitando l’accesso ai contenuti da parte degli utenti.</p>
+              <p>Ogni sezione del sito è progettata per valorizzare l’identità dell’attività, comunicare professionalità e guidare il visitatore verso le informazioni più rilevanti, come servizi, portfolio, articoli o contatti.</p>
+              <p>Questo tipo di sito è ideale per aziende e professionisti che desiderano una presenza online più strutturata, capace di trasmettere affidabilità, offrire contenuti approfonditi e migliorare la visibilità sui motori di ricerca.</p>
+              <div class="pricing-target">
+                <strong>Ideale per:</strong>
+                <ul>
+                  <li>aziende</li>
+                  <li>studi professionali</li>
+                  <li>agenzie</li>
+                  <li>consulenti</li>
+                  <li>palestre</li>
+                  <li>realtà che vogliono presentare la propria attività online in modo completo e professionale</li>
+                </ul>
+              </div>
+              <span class="pricing-badge">da 299 €</span>
+            </article>
+
+            <article class="pricing-card reveal delay-2 has-price">
+              <span class="pricing-label">Commerce</span>
+              <h3>E-commerce</h3>
+              <p>Realizzazione di negozi online moderni e intuitivi progettati per vendere prodotti o servizi in modo semplice, sicuro ed efficace.</p>
+              <p>L’e-commerce permette di gestire un catalogo prodotti, ricevere ordini online e offrire ai clienti un’esperienza di acquisto chiara e fluida da qualsiasi dispositivo.</p>
+              <p>La struttura del sito è progettata per facilitare la navigazione tra le categorie, valorizzare i prodotti e guidare l’utente durante tutto il processo di acquisto, dalla scoperta del prodotto fino al pagamento.</p>
+              <p>Il sistema include gestione del catalogo, carrello, pagamenti online e strumenti per l’organizzazione degli ordini.</p>
+              <p>Un negozio online ben progettato permette alle attività di ampliare il proprio mercato, vendere in modo continuo e offrire ai clienti un canale di acquisto sempre accessibile.</p>
+              <div class="pricing-target">
+                <strong>Ideale per:</strong>
+                <ul>
+                  <li>negozi locali</li>
+                  <li>brand emergenti</li>
+                  <li>artigiani</li>
+                  <li>attività commerciali</li>
+                  <li>produttori</li>
+                  <li>aziende che desiderano vendere prodotti online e ampliare la propria presenza digitale</li>
+                </ul>
+              </div>
+              <span class="pricing-badge">da 499 €</span>
+            </article>
+
+            <article class="pricing-card reveal delay-3 has-price">
+              <span class="pricing-label">Custom</span>
+              <h3>Sviluppo Web Personalizzato</h3>
+              <p>Progettazione e sviluppo di soluzioni web su misura pensate per rispondere a esigenze specifiche che non possono essere soddisfatte da siti standard o template predefiniti.</p>
+              <p>Lo sviluppo personalizzato permette di realizzare piattaforme digitali con funzionalità dedicate, integrazioni con servizi esterni e sistemi costruiti intorno al flusso di lavoro reale dell’attività.</p>
+              <p>Ogni progetto viene progettato partendo dalla struttura tecnica, dall’esperienza utente e dagli obiettivi del servizio digitale.</p>
+              <p>Questo tipo di sviluppo consente di creare strumenti web più evoluti, come sistemi di prenotazione, aree riservate, piattaforme gestionali, integrazioni con API esterne, dashboard amministrative o applicazioni web interattive.</p>
+              <p>Il risultato è un prodotto digitale progettato per essere scalabile, efficiente e perfettamente adattato alle esigenze del progetto.</p>
+              <div class="pricing-target">
+                <strong>Ideale per:</strong>
+                <ul>
+                  <li>startup</li>
+                  <li>professionisti digitali</li>
+                  <li>aziende con esigenze specifiche</li>
+                  <li>piattaforme online</li>
+                  <li>sistemi di prenotazione</li>
+                  <li>dashboard gestionali</li>
+                  <li>servizi web interattivi</li>
+                </ul>
+              </div>
+              <span class="pricing-badge">da 899 €</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section testimonials-section">
+        <div class="section-shell">
+          <div class="section-heading reveal">
+            <span class="eyebrow">Testimonianze</span>
+            <h2>Feedback da clienti che volevano un sito migliore, più credibile e più forte visivamente.</h2>
+          </div>
+
+          <div class="testimonial-slider reveal delay-1">
+            <button class="slider-arrow prev" type="button" aria-label="Recensione precedente">‹</button>
+            <div class="testimonial-track">
+              <article class="testimonial-card is-active">
+                <p>“Ha trasformato un sito piatto in un’esperienza molto più autorevole. Design, codice e dettaglio tecnico a un livello superiore.”</p>
+                <strong>Giovanni L.</strong>
+                <span>Founder, Nova Commerce</span>
+              </article>
+              <article class="testimonial-card">
+                <p>“Ottima lettura del brand e capacità rara di unire estetica premium e struttura tecnica pulita. Il risultato si percepisce subito.”</p>
+                <strong>Elisa M.</strong>
+                <span>Creative Director, Signal Studio</span>
+              </article>
+              <article class="testimonial-card">
+                <p>“Molto forte sulle interazioni, ma soprattutto sul senso complessivo del prodotto. Niente soluzioni standard, tutto molto intenzionale.”</p>
+                <strong>Marco T.</strong>
+                <span>CEO, Flux Analytics</span>
+              </article>
+            </div>
+            <button class="slider-arrow next" type="button" aria-label="Recensione successiva">›</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact">
+        <div class="section-shell contact-layout">
+          <div class="contact-copy reveal">
+            <span class="eyebrow">Contatti</span>
+            <h2>Se vuoi un progetto che sembri premium già al primo scroll, partiamo da qui.</h2>
+            <p>
+              Raccontami il contesto, il tipo di business e il livello di esperienza digitale che vuoi costruire. Posso aiutarti con concept,
+              UI e sviluppo completo.
+            </p>
+          </div>
+
+          <form class="contact-form reveal delay-1" novalidate>
+            <div>
+              <label for="contactName">Nome</label>
+              <input id="contactName" name="name" type="text" placeholder="Il tuo nome" required />
+            </div>
+            <div>
+              <label for="contactEmail">Email</label>
+              <input id="contactEmail" name="email" type="email" placeholder="nome@email.it" required />
+            </div>
+            <div>
+              <label for="contactProject">Descrizione progetto</label>
+              <textarea id="contactProject" name="project" placeholder="Obiettivo, tempi, tipo di sito o applicazione, aspettative visive" required></textarea>
+            </div>
+            <label class="consent-check">
+              <input name="privacy" type="checkbox" required />
+              <span>Acconsento al trattamento dei dati personali per la gestione della richiesta.</span>
+            </label>
+            <button class="btn btn-primary" type="submit">Invia richiesta</button>
+            <p class="form-feedback" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="section-shell footer-layout">
+        <div>
+          <strong>Demian Buscatti</strong>
+          <span>Web Developer & Digital Creator</span>
+        </div>
+        <div class="footer-nav">
+          <a href="#portfolio">Portfolio</a>
+          <a href="#process">Processo</a>
+          <a href="#contact">Contatti</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="cookie.html">Cookie</a>
+        </div>
+        <div class="footer-meta">
+          <a href="https://linkedin.com">LinkedIn</a>
+          <span>© 2026 Demian Buscatti</span>
+        </div>
+      </div>
+    </footer>
+
+    <a class="whatsapp-float" href="https://wa.me/390212345678?text=Ciao%20Demian%2C%20vorrei%20maggiori%20informazioni%20per%20un%20progetto%20web." target="_blank" rel="noreferrer" aria-label="Contatta su WhatsApp">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M19.11 17.21c-.27-.13-1.58-.78-1.83-.87-.24-.09-.42-.13-.6.14-.18.27-.69.87-.85 1.05-.16.18-.31.2-.58.07-.27-.13-1.12-.41-2.13-1.3-.79-.7-1.33-1.56-1.49-1.83-.16-.27-.02-.41.12-.54.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.02-.47-.07-.13-.6-1.45-.82-1.98-.22-.53-.44-.46-.6-.46h-.51c-.18 0-.47.07-.71.34-.24.27-.93.91-.93 2.22 0 1.31.95 2.58 1.09 2.76.13.18 1.86 2.84 4.51 3.98.63.27 1.12.43 1.51.55.63.2 1.2.17 1.65.1.5-.08 1.58-.65 1.8-1.27.22-.63.22-1.16.16-1.27-.07-.11-.24-.18-.51-.31Z"></path>
+        <path d="M16.03 3.2c-7.03 0-12.74 5.72-12.74 12.75 0 2.24.59 4.43 1.71 6.36L3.2 28.8l6.66-1.74a12.7 12.7 0 0 0 6.17 1.58h.01c7.03 0 12.75-5.72 12.75-12.75 0-3.41-1.33-6.61-3.75-9.02A12.66 12.66 0 0 0 16.03 3.2Zm0 23.29h-.01a10.56 10.56 0 0 1-5.38-1.47l-.38-.22-3.95 1.03 1.05-3.85-.24-.39a10.6 10.6 0 0 1-1.63-5.66c0-5.86 4.77-10.63 10.64-10.63 2.84 0 5.51 1.1 7.51 3.11a10.55 10.55 0 0 1 3.11 7.51c0 5.87-4.77 10.64-10.63 10.64Z"></path>
+      </svg>
+    </a>
+
+    <div class="modal" id="contactModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close-contact-modal="true"></div>
+      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
+        <button class="modal-close" type="button" aria-label="Chiudi" data-close-contact-modal="true">×</button>
+        <span class="eyebrow">Nuovo progetto</span>
+        <h2 id="contactModalTitle">Parliamo del tuo progetto digitale.</h2>
+        <p class="modal-copy">Raccontami il contesto, il tipo di sito o applicazione e il livello visivo che vuoi raggiungere. Ti rispondo con un primo orientamento operativo.</p>
+        <form class="contact-form modal-contact-form" id="contactModalForm" novalidate>
+          <div>
+            <label for="modalName">Nome</label>
+            <input id="modalName" name="name" type="text" placeholder="Il tuo nome" required />
+          </div>
+          <div>
+            <label for="modalEmail">Email</label>
+            <input id="modalEmail" name="email" type="email" placeholder="nome@email.it" required />
+          </div>
+          <div>
+            <label for="modalProject">Descrizione progetto</label>
+            <textarea id="modalProject" name="project" placeholder="Obiettivo, settore, tempistiche, aspettative visive" required></textarea>
+          </div>
+          <label class="consent-check">
+            <input name="privacy" type="checkbox" required />
+            <span>Acconsento al trattamento dei dati personali per la gestione della richiesta.</span>
+          </label>
+          <button class="btn btn-primary" type="submit">Invia richiesta</button>
+          <p class="form-feedback" id="modalFeedback" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" id="callModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close-call-modal="true"></div>
+      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="callModalTitle">
+        <button class="modal-close" type="button" aria-label="Chiudi" data-close-call-modal="true">×</button>
+        <span class="eyebrow">Richiesta call</span>
+        <h2 id="callModalTitle">Prenota una call conoscitiva.</h2>
+        <p class="modal-copy">Lascia i tuoi riferimenti e il numero di telefono. Ti ricontatterò per concordare una call breve e operativa.</p>
+        <form class="contact-form modal-contact-form" id="callModalForm" novalidate>
+          <div>
+            <label for="callName">Nome</label>
+            <input id="callName" name="name" type="text" placeholder="Il tuo nome" required />
+          </div>
+          <div>
+            <label for="callEmail">Email</label>
+            <input id="callEmail" name="email" type="email" placeholder="nome@email.it" required />
+          </div>
+          <div>
+            <label for="callPhone">Telefono</label>
+            <input id="callPhone" name="phone" type="tel" placeholder="+39 ..." required />
+          </div>
+          <div>
+            <label for="callNotes">Note</label>
+            <textarea id="callNotes" name="notes" placeholder="Tipo di progetto, fascia oraria preferita, contesto rapido"></textarea>
+          </div>
+          <label class="consent-check">
+            <input name="privacy" type="checkbox" required />
+            <span>Acconsento al trattamento dei dati personali per la gestione della richiesta.</span>
+          </label>
+          <button class="btn btn-primary" type="submit">Invia richiesta</button>
+          <p class="form-feedback" id="callFeedback" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" id="thanksModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close-thanks-modal="true"></div>
+      <div class="modal-dialog thanks-dialog" role="dialog" aria-modal="true" aria-labelledby="thanksModalTitle">
+        <button class="modal-close" type="button" aria-label="Chiudi" data-close-thanks-modal="true">×</button>
+        <div class="thanks-console">
+          <span class="thanks-prompt">&gt; response.received()</span>
+          <h2 id="thanksModalTitle">Grazie.</h2>
+          <p class="thanks-copy"><code>{ message: "Richiesta ricevuta", next_step: "Ti ricontatterò al più presto" }</code></p>
+          <p class="thanks-note">Messaggio ricevuto correttamente. Ti risponderò al più presto con un primo riscontro operativo.</p>
+          <button class="btn btn-primary" type="button" data-close-thanks-modal="true">Chiudi</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
