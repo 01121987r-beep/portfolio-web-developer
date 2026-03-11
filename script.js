@@ -161,6 +161,124 @@ if (qualityMetrics.length) {
   qualityMetrics.forEach((metric) => qualityObserver.observe(metric));
 }
 
+const setupPortfolioCarousel = () => {
+  const carousels = document.querySelectorAll('[data-portfolio-carousel]');
+  if (!carousels.length) return;
+
+  carousels.forEach((carousel) => {
+    const track = carousel.querySelector('.portfolio-track');
+    if (!track) return;
+
+    let offset = 0;
+    let rafId = 0;
+    let paused = false;
+    let dragging = false;
+    let startX = 0;
+    let lastX = 0;
+    let resumeTimer = 0;
+    const autoSpeed = 0.32;
+
+    const getLoopWidth = () => track.scrollWidth / 2;
+
+    const normalizeOffset = () => {
+      const loopWidth = getLoopWidth();
+      if (!loopWidth) return;
+      while (offset >= loopWidth) offset -= loopWidth;
+      while (offset < 0) offset += loopWidth;
+    };
+
+    const render = () => {
+      normalizeOffset();
+      track.style.transform = `translateX(${-offset}px)`;
+    };
+
+    const queueResume = () => {
+      window.clearTimeout(resumeTimer);
+      resumeTimer = window.setTimeout(() => {
+        paused = false;
+        carousel.classList.remove('is-paused');
+      }, 900);
+    };
+
+    const tick = () => {
+      if (!paused && !dragging) {
+        offset += autoSpeed;
+        render();
+      }
+      rafId = window.requestAnimationFrame(tick);
+    };
+
+    const stopAuto = () => {
+      paused = true;
+      carousel.classList.add('is-paused');
+      queueResume();
+    };
+
+    carousel.addEventListener('wheel', (event) => {
+      if (Math.abs(event.deltaX) < 1 && Math.abs(event.deltaY) < 1) return;
+      event.preventDefault();
+      const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+      offset += delta;
+      render();
+      stopAuto();
+    }, { passive: false });
+
+    carousel.addEventListener('pointerdown', (event) => {
+      dragging = true;
+      paused = true;
+      carousel.classList.add('is-dragging', 'is-paused');
+      startX = event.clientX;
+      lastX = offset;
+      carousel.setPointerCapture?.(event.pointerId);
+    });
+
+    carousel.addEventListener('pointermove', (event) => {
+      if (!dragging) return;
+      const deltaX = event.clientX - startX;
+      offset = lastX - deltaX;
+      render();
+    });
+
+    const endDrag = (event) => {
+      if (!dragging) return;
+      dragging = false;
+      carousel.classList.remove('is-dragging');
+      carousel.releasePointerCapture?.(event.pointerId);
+      queueResume();
+    };
+
+    carousel.addEventListener('pointerup', endDrag);
+    carousel.addEventListener('pointercancel', endDrag);
+    carousel.addEventListener('pointerleave', () => {
+      if (!dragging) return;
+      dragging = false;
+      carousel.classList.remove('is-dragging');
+      queueResume();
+    });
+
+    carousel.addEventListener('mouseenter', () => {
+      paused = true;
+      carousel.classList.add('is-paused');
+    });
+
+    carousel.addEventListener('mouseleave', () => {
+      if (dragging) return;
+      paused = false;
+      carousel.classList.remove('is-paused');
+    });
+
+    render();
+    rafId = window.requestAnimationFrame(tick);
+    window.addEventListener('resize', render);
+    window.addEventListener('beforeunload', () => {
+      window.cancelAnimationFrame(rafId);
+      window.clearTimeout(resumeTimer);
+    }, { once: true });
+  });
+};
+
+setupPortfolioCarousel();
+
 const showSlide = (index) => {
   if (!testimonialCards.length) return;
   activeIndex = (index + testimonialCards.length) % testimonialCards.length;

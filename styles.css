@@ -680,11 +680,36 @@ textarea {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 18px;
 }
+.portfolio-carousel {
+  --portfolio-gap: 18px;
+  display: block;
+  overflow: hidden;
+  cursor: grab;
+  user-select: none;
+  touch-action: pan-y;
+  mask-image: linear-gradient(90deg, transparent 0, #000 4%, #000 96%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 4%, #000 96%, transparent 100%);
+}
+
+.portfolio-carousel.is-dragging {
+  cursor: grabbing;
+}
+
+.portfolio-track {
+  display: flex;
+  gap: var(--portfolio-gap);
+  width: max-content;
+  will-change: transform;
+  transform: translateX(0);
+  padding: 4px 0;
+}
 
 .project-mini-card {
   position: relative;
   display: block;
   min-height: 320px;
+  width: 290px;
+  flex: 0 0 auto;
   border-radius: var(--radius-xl);
   overflow: hidden;
   background: rgba(255, 255, 255, 0.05);
@@ -694,9 +719,10 @@ textarea {
 }
 
 .project-mini-card:hover {
-  transform: translateY(-10px) scale(1.03);
+  transform: translateY(-10px) scale(1.06);
   box-shadow: 0 34px 70px rgba(0, 0, 0, 0.36);
   border-color: rgba(20, 255, 157, 0.28);
+  z-index: 3;
 }
 
 .project-mini-card:hover .project-media img {
@@ -1708,6 +1734,15 @@ textarea {
 
   .project-showcase {
     grid-template-columns: 1fr;
+  }
+
+  .portfolio-carousel {
+    --portfolio-gap: 14px;
+  }
+
+  .project-mini-card {
+    width: min(82vw, 320px);
+    min-height: 340px;
   }
 
   .portfolio-grid {
