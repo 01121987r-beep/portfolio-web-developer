@@ -1713,33 +1713,28 @@ textarea {
   }
 
   .hero-visual {
-    min-height: 360px;
+    min-height: auto;
+    display: grid;
+    gap: 18px;
+    align-content: start;
   }
 
   .code-card,
   .stack-card {
-    position: absolute;
-    width: calc(100% - 14px);
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    transform: none;
   }
 
   .code-card {
-    transform: scale(0.94);
-    transform-origin: top right;
+    top: auto;
+    right: auto;
   }
 
   .stack-card {
-    transform: scale(0.92);
-    transform-origin: bottom left;
-  }
-
-  .code-card {
-    top: 0;
-    right: 0;
-  }
-
-  .stack-card {
-    left: 0;
-    bottom: 0;
+    left: auto;
+    bottom: auto;
   }
 
   .project-card.large,
