@@ -234,7 +234,6 @@ const setupPortfolioCarousel = () => {
       carousel.classList.add('is-paused');
       startX = event.clientX;
       lastX = offset;
-      carousel.setPointerCapture?.(event.pointerId);
     });
 
     carousel.addEventListener('pointermove', (event) => {
@@ -244,6 +243,7 @@ const setupPortfolioCarousel = () => {
         dragging = true;
         dragMoved = true;
         carousel.classList.add('is-dragging');
+        carousel.setPointerCapture?.(event.pointerId);
       }
       if (!dragging) return;
       offset = lastX - deltaX;
@@ -255,9 +255,9 @@ const setupPortfolioCarousel = () => {
       pointerDown = false;
       if (dragging) {
         dragging = false;
+        carousel.releasePointerCapture?.(event.pointerId);
       }
       carousel.classList.remove('is-dragging');
-      carousel.releasePointerCapture?.(event.pointerId);
       queueResume();
       window.setTimeout(() => {
         dragMoved = false;
@@ -278,10 +278,18 @@ const setupPortfolioCarousel = () => {
     });
 
     track.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('pointerdown', () => {
+        paused = true;
+        carousel.classList.add('is-paused');
+      });
       link.addEventListener('click', (event) => {
-        if (!dragMoved) return;
+        if (dragMoved) {
+          event.preventDefault();
+          event.stopPropagation();
+          return;
+        }
         event.preventDefault();
-        event.stopPropagation();
+        window.open(link.href, link.target || '_self', link.target === '_blank' ? 'noopener,noreferrer' : undefined);
       });
     });
 
