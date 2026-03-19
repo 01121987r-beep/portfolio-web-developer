@@ -172,11 +172,14 @@ const setupPortfolioCarousel = () => {
     let offset = 0;
     let rafId = 0;
     let paused = false;
+    let pointerDown = false;
     let dragging = false;
+    let dragMoved = false;
     let startX = 0;
     let lastX = 0;
     let resumeTimer = 0;
     const autoSpeed = 0.32;
+    const dragThreshold = 6;
 
     const getLoopWidth = () => track.scrollWidth / 2;
 
@@ -224,36 +227,62 @@ const setupPortfolioCarousel = () => {
     }, { passive: false });
 
     carousel.addEventListener('pointerdown', (event) => {
-      dragging = true;
+      pointerDown = true;
+      dragging = false;
+      dragMoved = false;
       paused = true;
-      carousel.classList.add('is-dragging', 'is-paused');
+      carousel.classList.add('is-paused');
       startX = event.clientX;
       lastX = offset;
       carousel.setPointerCapture?.(event.pointerId);
     });
 
     carousel.addEventListener('pointermove', (event) => {
-      if (!dragging) return;
+      if (!pointerDown) return;
       const deltaX = event.clientX - startX;
+      if (!dragging && Math.abs(deltaX) > dragThreshold) {
+        dragging = true;
+        dragMoved = true;
+        carousel.classList.add('is-dragging');
+      }
+      if (!dragging) return;
       offset = lastX - deltaX;
       render();
     });
 
     const endDrag = (event) => {
-      if (!dragging) return;
-      dragging = false;
+      if (!pointerDown) return;
+      pointerDown = false;
+      if (dragging) {
+        dragging = false;
+      }
       carousel.classList.remove('is-dragging');
       carousel.releasePointerCapture?.(event.pointerId);
       queueResume();
+      window.setTimeout(() => {
+        dragMoved = false;
+      }, 0);
     };
 
     carousel.addEventListener('pointerup', endDrag);
     carousel.addEventListener('pointercancel', endDrag);
     carousel.addEventListener('pointerleave', () => {
-      if (!dragging) return;
+      if (!pointerDown) return;
+      pointerDown = false;
       dragging = false;
       carousel.classList.remove('is-dragging');
       queueResume();
+      window.setTimeout(() => {
+        dragMoved = false;
+      }, 0);
+    });
+
+    track.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', (event) => {
+        if (!dragMoved) return;
+        event.preventDefault();
+        event.stopPropagation();
+      });
     });
 
     carousel.addEventListener('mouseenter', () => {
