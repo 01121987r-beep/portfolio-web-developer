@@ -1857,9 +1857,24 @@ textarea {
     min-height: 240px;
   }
 
+  .project-card,
+  .project-media {
+    height: auto;
+  }
+
+  .project-media {
+    height: 240px;
+  }
+
+  .project-media img {
+    height: 100%;
+    object-position: center;
+  }
+
   .project-overlay {
-    padding: 16px;
+    padding: 14px;
     gap: 6px;
+    background: linear-gradient(180deg, rgba(5, 8, 20, 0.02), rgba(5, 8, 20, 0.84));
   }
 
   .project-overlay h3 {
