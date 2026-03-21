@@ -1624,6 +1624,10 @@ textarea {
     min-height: 240px;
   }
 
+  .portfolio-dup {
+    display: none;
+  }
+
   .testimonial-slider {
     overflow: visible;
   }
