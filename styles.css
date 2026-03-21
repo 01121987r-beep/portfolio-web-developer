@@ -1621,6 +1621,7 @@ textarea {
   .portfolio-carousel .project-mini-card {
     width: 100%;
     flex: none;
+    min-height: 240px;
   }
 
   .testimonial-slider {
@@ -1842,8 +1843,8 @@ textarea {
   }
 
   .project-mini-card {
-    width: min(82vw, 320px);
-    min-height: 340px;
+    width: 100%;
+    min-height: 240px;
   }
 
   .portfolio-grid {
@@ -1853,22 +1854,22 @@ textarea {
 
   .project-card,
   .project-mini-card {
-    min-height: 340px;
+    min-height: 240px;
   }
 
   .project-overlay {
-    padding: 18px;
-    gap: 8px;
+    padding: 16px;
+    gap: 6px;
   }
 
   .project-overlay h3 {
-    font-size: 1.85rem;
-    line-height: 0.98;
+    font-size: 1.45rem;
+    line-height: 1.02;
   }
 
   .project-overlay p {
-    font-size: 0.94rem;
-    line-height: 1.55;
+    font-size: 0.88rem;
+    line-height: 1.45;
   }
 
   .project-tags {
