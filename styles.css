@@ -1580,6 +1580,88 @@ textarea {
 }
 
 @media (max-width: 760px) {
+  body {
+    background: #050a07;
+  }
+
+  .page-noise,
+  .ambient,
+  .particles,
+  .hero-glow,
+  .intro-badge,
+  .timeline-badge,
+  .floating-note,
+  .footer-glow {
+    display: none !important;
+  }
+
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .portfolio-carousel {
+    overflow: visible;
+  }
+
+  .portfolio-track {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    transform: none !important;
+  }
+
+  .portfolio-carousel .project-mini-card {
+    width: 100%;
+    flex: none;
+  }
+
+  .testimonial-slider {
+    overflow: visible;
+  }
+
+  .testimonial-track {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    transform: none !important;
+  }
+
+  .testimonial-card {
+    opacity: 1;
+    transform: none;
+  }
+
+  .slider-arrow {
+    display: none;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .intro-panels,
+  .skills-grid,
+  .timeline-grid {
+    gap: 16px;
+  }
+
+  .project-showcase {
+    padding: 0;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+  }
+}
   .header-shell,
   .section-shell,
   .mobile-nav {
