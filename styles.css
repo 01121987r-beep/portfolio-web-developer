@@ -651,7 +651,7 @@ textarea {
 
 .portfolio-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  grid-auto-rows: minmax(280px, auto);
+  grid-auto-rows: minmax(250px, auto);
 }
 
 .portfolio-section .section-heading {
@@ -678,7 +678,7 @@ textarea {
 
 .project-card.large {
   grid-column: span 2;
-  grid-row: span 1;
+  grid-row: span 2;
 }
 
 .project-card.wide {
@@ -728,8 +728,8 @@ textarea {
 .project-mini-card {
   position: relative;
   display: block;
-  width: 220px;
-  height: 220px;
+  width: 260px;
+  height: 260px;
   flex: 0 0 auto;
   border-radius: var(--radius-xl);
   overflow: hidden;
@@ -802,7 +802,7 @@ textarea {
 
 .project-mini-card .project-overlay p {
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
