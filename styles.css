@@ -694,7 +694,8 @@ textarea {
 .portfolio-carousel {
   --portfolio-gap: 18px;
   display: block;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
   cursor: grab;
   user-select: none;
   touch-action: pan-y;
