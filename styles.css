@@ -1667,6 +1667,8 @@ textarea {
     box-shadow: none;
   }
 }
+
+@media (max-width: 760px) {
   .header-shell,
   .section-shell,
   .mobile-nav {
