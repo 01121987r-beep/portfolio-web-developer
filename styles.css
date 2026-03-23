@@ -1280,6 +1280,47 @@ textarea {
   box-shadow: none;
 }
 
+/* Desktop-only: keep the call request modal compact and fixed, without inner scrolling. */
+@media (min-width: 1024px) {
+  #callModal {
+    padding: 0;
+    overflow: hidden;
+  }
+
+  #callModal .modal-dialog {
+    width: min(920px, calc(100% - 48px));
+    margin: clamp(18px, 4vh, 40px) auto;
+    max-height: none;
+  }
+
+  #callModal .modal-copy {
+    margin: 6px 0 0;
+    max-width: 100%;
+  }
+
+  #callModal .modal-contact-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 16px;
+    margin-top: 16px;
+    align-items: start;
+  }
+
+  #callModal .modal-contact-form > div:nth-child(4) {
+    grid-column: 1 / -1;
+  }
+
+  #callModal .modal-contact-form textarea {
+    min-height: 86px;
+  }
+
+  #callModal .consent-check,
+  #callModal .modal-contact-form .btn,
+  #callModal .modal-contact-form .form-feedback {
+    grid-column: 1 / -1;
+  }
+}
+
 .thanks-dialog {
   width: min(560px, calc(100% - 24px));
 }
