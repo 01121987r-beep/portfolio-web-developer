@@ -326,6 +326,14 @@ textarea {
   padding: 120px 0;
 }
 
+.portfolio-section {
+  padding-bottom: 60px;
+}
+
+.process-section {
+  padding-top: 60px;
+}
+
 .hero-section {
   position: relative;
   min-height: 100vh;
