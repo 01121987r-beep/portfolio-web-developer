@@ -695,6 +695,7 @@ textarea {
 
 .project-showcase {
   grid-column: 1 / -1;
+  grid-row: span 7;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 18px;
