@@ -716,13 +716,14 @@ textarea {
   will-change: transform;
   transform: translateX(0);
   padding: 10px 0 14px;
+  align-items: stretch;
 }
 
 .project-mini-card {
   position: relative;
   display: block;
-  min-height: 300px;
-  width: 280px;
+  width: 220px;
+  height: 220px;
   flex: 0 0 auto;
   border-radius: var(--radius-xl);
   overflow: hidden;
@@ -785,12 +786,19 @@ textarea {
   flex-direction: column;
   justify-content: flex-end;
   gap: 12px;
-  padding: 26px;
+  padding: 18px;
   background: linear-gradient(180deg, rgba(5, 8, 20, 0.1), rgba(5, 8, 20, 0.86));
 }
 
 .project-overlay.compact {
   gap: 10px;
+}
+
+.project-mini-card .project-overlay p {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .project-card.large .project-overlay {
