@@ -651,7 +651,7 @@ textarea {
 
 .portfolio-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  grid-auto-rows: minmax(250px, auto);
+  grid-auto-rows: minmax(220px, auto);
 }
 
 .portfolio-section .section-heading {
@@ -728,8 +728,8 @@ textarea {
 .project-mini-card {
   position: relative;
   display: block;
-  width: 260px;
-  height: 260px;
+  width: 280px;
+  height: 280px;
   flex: 0 0 auto;
   border-radius: var(--radius-xl);
   overflow: hidden;
