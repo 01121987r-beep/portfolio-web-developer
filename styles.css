@@ -404,12 +404,12 @@ textarea {
 
 .hero-copy h1 {
   max-width: 840px;
-  font-size: clamp(3.5rem, 7.2vw, 6.6rem);
+  font-size: clamp(2.8rem, 5.8vw, 5.2rem);
 }
 
 .hero-copy .eyebrow {
-  font-size: 0.7rem;
-  letter-spacing: 0.16em;
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
 }
 
 .section h2 {
@@ -1848,7 +1848,7 @@ textarea {
 
   .hero-copy h1 {
     max-width: 10ch;
-    font-size: clamp(2.5rem, 9.5vw, 3.8rem);
+    font-size: clamp(2.2rem, 8.6vw, 3.2rem);
     line-height: 0.98;
     letter-spacing: -0.05em;
   }
@@ -1865,7 +1865,7 @@ textarea {
   }
 
   .hero-copy .eyebrow {
-    font-size: 0.66rem;
+    font-size: 0.6rem;
     letter-spacing: 0.13em;
   }
 
