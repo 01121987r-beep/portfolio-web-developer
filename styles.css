@@ -1910,7 +1910,15 @@ textarea {
   }
 
   .section {
-    padding: 84px 0;
+    padding: 44px 0;
+  }
+
+  .portfolio-section {
+    padding-bottom: 10px;
+  }
+
+  .process-section {
+    padding-top: 10px;
   }
 
   .legal-page .section {
