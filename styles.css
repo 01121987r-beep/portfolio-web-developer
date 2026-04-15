@@ -2036,7 +2036,7 @@ textarea {
 
   .portfolio-carousel {
     --portfolio-gap: 14px;
-    padding: 16px 14px 24px;
+    padding: 0 0 24px;
     margin: 0;
   }
 
