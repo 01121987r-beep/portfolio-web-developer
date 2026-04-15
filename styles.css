@@ -323,7 +323,7 @@ textarea {
 
 .section {
   position: relative;
-  padding: 120px 0;
+  padding: 96px 0;
 }
 
 .portfolio-section {
@@ -331,7 +331,7 @@ textarea {
 }
 
 .process-section {
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
 .hero-section {
@@ -340,6 +340,14 @@ textarea {
   display: grid;
   align-items: start;
   overflow: hidden;
+}
+
+@media (min-width: 901px) {
+  .hero-section {
+    min-height: calc(100vh - 88px);
+    padding-top: 56px;
+    padding-bottom: 72px;
+  }
 }
 
 .hero-grid-lines,
