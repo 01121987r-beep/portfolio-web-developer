@@ -1734,6 +1734,8 @@ textarea {
     grid-template-columns: 1fr;
     gap: 18px;
     transform: none !important;
+    width: 100%;
+    max-width: 100%;
   }
 
   .portfolio-carousel .project-mini-card {
@@ -1779,10 +1781,23 @@ textarea {
     border: none;
     background: transparent;
     box-shadow: none;
+    width: 100%;
   }
 }
 
 @media (max-width: 900px) {
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 120;
+  }
+
+  main {
+    padding-top: 92px;
+  }
+
   .hero-section {
     min-height: auto;
   }
