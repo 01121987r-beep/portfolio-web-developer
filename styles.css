@@ -1796,6 +1796,49 @@ textarea {
   .stack-card {
     display: none !important;
   }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 250px;
+    gap: 14px;
+  }
+
+  .project-card,
+  .project-mini-card {
+    height: 250px;
+    min-height: 250px;
+  }
+
+  .project-card.large,
+  .project-card.small,
+  .project-card.wide {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .project-showcase {
+    grid-template-columns: 1fr;
+    grid-row: auto;
+    height: auto;
+  }
+
+  .project-card,
+  .project-media {
+    height: 100%;
+  }
+
+  .project-media img {
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .project-overlay p {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 }
 
 @media (max-width: 760px) {
