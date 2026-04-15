@@ -6,16 +6,11 @@ const qualityMetrics = document.querySelectorAll('.quality-metric');
 const testimonialCards = document.querySelectorAll('.testimonial-card');
 const prevBtn = document.querySelector('.slider-arrow.prev');
 const nextBtn = document.querySelector('.slider-arrow.next');
-const form = document.querySelector('.contact-form');
-const feedback = document.querySelector('.form-feedback');
+const forms = document.querySelectorAll('.contact-form');
 const modal = document.querySelector('#contactModal');
-const modalForm = document.querySelector('#contactModalForm');
-const modalFeedback = document.querySelector('#modalFeedback');
 const modalOpeners = document.querySelectorAll('[data-open-contact-modal="true"]');
 const modalClosers = document.querySelectorAll('[data-close-contact-modal="true"]');
 const callModal = document.querySelector('#callModal');
-const callForm = document.querySelector('#callModalForm');
-const callFeedback = document.querySelector('#callFeedback');
 const callOpeners = document.querySelectorAll('[data-open-call-modal="true"]');
 const callClosers = document.querySelectorAll('[data-close-call-modal="true"]');
 const thanksModal = document.querySelector('#thanksModal');
@@ -23,6 +18,11 @@ const thanksClosers = document.querySelectorAll('[data-close-thanks-modal="true"
 const isEnglish = document.documentElement.lang === 'en';
 const isMobile = window.matchMedia('(max-width: 760px)').matches;
 const cookieStorageKey = 'demian_buscatti_cookie_consent_v1';
+const cookieConsentVersion = 'v2';
+const cookieConsentMaxAgeMs = 180 * 24 * 60 * 60 * 1000; // 6 months
+const contactEmail = '01121987r@gmail.com';
+const FORM_DELIVERY_MODE = 'formsubmit'; // 'mailto' | 'formsubmit'
+const formSubmitEndpoint = `https://formsubmit.co/ajax/${contactEmail}`;
 let activeIndex = 0;
 let sliderTimer;
 
@@ -40,7 +40,7 @@ const openContactModal = () => {
   modal.classList.add('is-open');
   modal.setAttribute('aria-hidden', 'false');
   document.body.classList.add('menu-open');
-  requestAnimationFrame(() => modalForm?.querySelector('input, textarea')?.focus());
+  requestAnimationFrame(() => modal?.querySelector('form')?.querySelector('input, textarea')?.focus());
 };
 
 const closeContactModal = () => {
@@ -57,7 +57,7 @@ const openCallModal = () => {
   callModal.classList.add('is-open');
   callModal.setAttribute('aria-hidden', 'false');
   document.body.classList.add('menu-open');
-  requestAnimationFrame(() => callForm?.querySelector('input, textarea')?.focus());
+  requestAnimationFrame(() => callModal?.querySelector('form')?.querySelector('input, textarea')?.focus());
 };
 
 const closeCallModal = () => {
@@ -347,7 +347,7 @@ const restartSlider = () => {
   }, 4200);
 };
 
-if (testimonialCards.length && !isMobile) {
+if (testimonialCards.length) {
   showSlide(0);
   restartSlider();
 
@@ -360,64 +360,161 @@ if (testimonialCards.length && !isMobile) {
     showSlide(activeIndex + 1);
     restartSlider();
   });
-} else if (testimonialCards.length) {
-  testimonialCards.forEach((card) => card.classList.add('is-active'));
 }
 
-if (form && feedback) {
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
+const getFormKind = (form) => {
+  if (!form) return 'contact';
+  if (form.id === 'contactModalForm') return 'project';
+  if (form.id === 'callModalForm') return 'call';
+  return 'contact';
+};
 
-    if (!form.reportValidity()) {
-      feedback.textContent = isEnglish
-        ? 'Complete all required fields and confirm the privacy checkbox.'
-        : 'Compila tutti i campi richiesti e conferma la privacy.';
-      return;
-    }
+const getInvalidMessage = () => (
+  isEnglish
+    ? 'Complete all required fields and confirm the privacy checkbox.'
+    : 'Compila tutti i campi richiesti e conferma la privacy.'
+);
 
-    feedback.textContent = isEnglish
-      ? 'Message sent. I will get back to you with an initial operational reply as soon as possible.'
-      : 'Messaggio inviato. Ti ricontatterò con una prima risposta operativa il prima possibile.';
-    form.reset();
-    openThanksModal();
-  });
-}
-
-if (modalForm && modalFeedback) {
-  modalForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-
-    if (!modalForm.reportValidity()) {
-      modalFeedback.textContent = isEnglish
-        ? 'Complete all required fields and confirm the privacy checkbox.'
-        : 'Compila tutti i campi richiesti e conferma la privacy.';
-      return;
-    }
-
-    modalFeedback.textContent = isEnglish
-      ? 'Request sent. I will get back to you with an initial operational response as soon as possible.'
-      : 'Richiesta inviata. Ti ricontatterò con un primo riscontro operativo il prima possibile.';
-    modalForm.reset();
-    openThanksModal();
-  });
-}
-
-if (callForm && callFeedback) {
-  callForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-
-    if (!callForm.reportValidity()) {
-      callFeedback.textContent = isEnglish
-        ? 'Complete all required fields and confirm the privacy checkbox.'
-        : 'Compila tutti i campi richiesti e conferma la privacy.';
-      return;
-    }
-
-    callFeedback.textContent = isEnglish
+const getSuccessMessage = (kind) => {
+  if (kind === 'call') {
+    return isEnglish
       ? 'Call request sent. I will contact you to define availability and timing.'
       : 'Richiesta call inviata. Ti ricontatterò per definire disponibilità e orario.';
-    callForm.reset();
+  }
+
+  if (kind === 'project') {
+    return isEnglish
+      ? 'Request sent. I will get back to you with an initial operational response as soon as possible.'
+      : 'Richiesta inviata. Ti ricontatterò con un primo riscontro operativo il prima possibile.';
+  }
+
+  return isEnglish
+    ? 'Message sent. I will get back to you with an initial operational reply as soon as possible.'
+    : 'Messaggio inviato. Ti ricontatterò con una prima risposta operativa il prima possibile.';
+};
+
+const getErrorMessage = () => (
+  isEnglish
+    ? 'Unable to send right now. Try again in a minute or contact me on WhatsApp.'
+    : 'Invio non riuscito al momento. Riprova tra un minuto oppure contattami su WhatsApp.'
+);
+
+const getMailtoOpenedMessage = () => (
+  isEnglish
+    ? 'Email app opened. Confirm and send the message from your client.'
+    : 'Client email aperto. Conferma e invia il messaggio dal tuo programma di posta.'
+);
+
+const getSubject = (kind) => {
+  if (kind === 'call') {
+    return isEnglish ? 'Website - New call request' : 'Sito web - Nuova richiesta call';
+  }
+  if (kind === 'project') {
+    return isEnglish ? 'Website - New project request (modal)' : 'Sito web - Nuova richiesta progetto (modal)';
+  }
+  return isEnglish ? 'Website - New contact request' : 'Sito web - Nuova richiesta contatto';
+};
+
+const buildPayload = (form, kind) => {
+  const data = new FormData(form);
+  const payload = {
+    _subject: getSubject(kind),
+    _template: 'table',
+    _captcha: 'false',
+    source: 'portfolio-web-developer',
+    form_kind: kind,
+    page_url: window.location.href,
+    language: isEnglish ? 'en' : 'it'
+  };
+
+  data.forEach((value, key) => {
+    payload[key] = typeof value === 'string' ? value.trim() : value;
+  });
+
+  return payload;
+};
+
+const buildMailtoBody = (form, kind) => {
+  const data = new FormData(form);
+  const lines = [
+    `${isEnglish ? 'Form type' : 'Tipo form'}: ${kind}`,
+    `${isEnglish ? 'Page URL' : 'Pagina'}: ${window.location.href}`,
+    `${isEnglish ? 'Language' : 'Lingua'}: ${isEnglish ? 'en' : 'it'}`,
+    ''
+  ];
+
+  data.forEach((value, key) => {
+    if (key === 'privacy') return;
+    const formattedKey = key.charAt(0).toUpperCase() + key.slice(1);
+    lines.push(`${formattedKey}: ${String(value).trim()}`);
+  });
+
+  lines.push(`${isEnglish ? 'Privacy consent' : 'Consenso privacy'}: yes`);
+  return lines.join('\n');
+};
+
+const setFormBusy = (form, busy) => {
+  const submitButton = form.querySelector('button[type="submit"]');
+  if (!submitButton) return;
+  submitButton.disabled = busy;
+  submitButton.style.opacity = busy ? '0.7' : '1';
+};
+
+const handleFormSubmit = async (form, feedback) => {
+  const kind = getFormKind(form);
+
+  if (!form.reportValidity()) {
+    feedback.textContent = getInvalidMessage();
+    return;
+  }
+
+  setFormBusy(form, true);
+  feedback.textContent = isEnglish ? 'Sending...' : 'Invio in corso...';
+
+  if (FORM_DELIVERY_MODE === 'mailto') {
+    const subject = getSubject(kind);
+    const body = buildMailtoBody(form, kind);
+    const mailtoUrl = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoUrl;
+    feedback.textContent = getMailtoOpenedMessage();
+    setFormBusy(form, false);
+    return;
+  }
+
+  try {
+    const response = await fetch(formSubmitEndpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify(buildPayload(form, kind))
+    });
+
+    if (!response.ok) {
+      throw new Error(`Form submit failed with status ${response.status}`);
+    }
+
+    feedback.textContent = getSuccessMessage(kind);
+    form.reset();
     openThanksModal();
+  } catch (error) {
+    feedback.textContent = getErrorMessage();
+    console.error(error);
+  } finally {
+    setFormBusy(form, false);
+  }
+};
+
+if (forms.length) {
+  forms.forEach((formElement) => {
+    const feedback = formElement.querySelector('.form-feedback');
+    if (!feedback) return;
+
+    formElement.addEventListener('submit', (event) => {
+      event.preventDefault();
+      handleFormSubmit(formElement, feedback);
+    });
   });
 }
 
@@ -446,8 +543,47 @@ if (!isMobile) {
   );
 }
 
+const readCookieConsentState = () => {
+  const raw = localStorage.getItem(cookieStorageKey);
+  if (!raw) return null;
+
+  try {
+    const parsed = JSON.parse(raw);
+    if (parsed && typeof parsed === 'object') {
+      return parsed;
+    }
+  } catch {
+    return {
+      choice: raw,
+      timestamp: 0,
+      version: 'legacy'
+    };
+  }
+
+  return null;
+};
+
+const shouldShowCookieBanner = () => {
+  const state = readCookieConsentState();
+  if (!state) return true;
+  if (state.version !== cookieConsentVersion) return true;
+  if (typeof state.timestamp !== 'number') return true;
+  return Date.now() - state.timestamp > cookieConsentMaxAgeMs;
+};
+
+const saveCookieConsentState = (choice) => {
+  localStorage.setItem(
+    cookieStorageKey,
+    JSON.stringify({
+      choice,
+      version: cookieConsentVersion,
+      timestamp: Date.now()
+    })
+  );
+};
+
 const createCookieBanner = () => {
-  if (localStorage.getItem(cookieStorageKey)) return;
+  if (!shouldShowCookieBanner()) return;
 
   const banner = document.createElement('div');
   banner.className = 'cookie-banner is-visible';
@@ -461,24 +597,22 @@ const createCookieBanner = () => {
       <p class="cookie-copy">
         ${
           isEnglish
-            ? `This portfolio uses technical cookies to keep the experience stable and lightweight. You can read <a href="${privacyLink}">Privacy Policy</a> and <a href="${cookieLink}">Cookie Policy</a> for the full details.`
-            : `Questo portfolio usa cookie tecnici per mantenere l'esperienza stabile e leggera. Puoi leggere <a href="${privacyLink}">Privacy Policy</a> e <a href="${cookieLink}">Cookie Policy</a> per i dettagli completi.`
+            ? `This website uses only technical cookies and equivalent local storage tools required for functionality. No profiling or marketing cookies are directly set. Read <a href="${privacyLink}">Privacy Policy</a> and <a href="${cookieLink}">Cookie Policy</a> for details.`
+            : `Questo sito utilizza solo cookie tecnici e strumenti equivalenti di memorizzazione locale necessari al funzionamento. Non vengono impostati direttamente cookie di profilazione o marketing. Leggi <a href="${privacyLink}">Privacy Policy</a> e <a href="${cookieLink}">Cookie Policy</a> per i dettagli.`
         }
       </p>
       <div class="cookie-actions">
-        <button class="btn btn-outline" type="button" data-cookie-action="reject">${isEnglish ? 'Reject' : 'Rifiuta'}</button>
-        <button class="btn btn-primary" type="button" data-cookie-action="accept">${isEnglish ? 'Accept' : 'Accetta'}</button>
+        <button class="btn btn-primary" type="button" data-cookie-action="acknowledge">${isEnglish ? 'Got it' : 'Ho capito'}</button>
       </div>
     </div>
   `;
 
   const closeBanner = (value) => {
-    localStorage.setItem(cookieStorageKey, value);
+    saveCookieConsentState(value);
     banner.remove();
   };
 
-  banner.querySelector('[data-cookie-action="accept"]')?.addEventListener('click', () => closeBanner('accepted'));
-  banner.querySelector('[data-cookie-action="reject"]')?.addEventListener('click', () => closeBanner('rejected'));
+  banner.querySelector('[data-cookie-action="acknowledge"]')?.addEventListener('click', () => closeBanner('acknowledged'));
 
   document.body.appendChild(banner);
 };

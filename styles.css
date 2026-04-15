@@ -338,7 +338,7 @@ textarea {
   position: relative;
   min-height: 100vh;
   display: grid;
-  align-items: center;
+  align-items: start;
   overflow: hidden;
 }
 
@@ -374,11 +374,12 @@ textarea {
 
 .hero-shell {
   position: relative;
+  padding-top: 0;
   z-index: 1;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(320px, 460px);
   gap: 40px;
-  align-items: center;
+  align-items: start;
 }
 
 .eyebrow {
@@ -484,6 +485,12 @@ textarea {
   font-size: 1.6rem;
 }
 
+.hero-metrics strong small {
+  font-size: 0.58em;
+  font-weight: 800;
+  color: #fff;
+}
+
 .hero-metrics span {
   color: var(--muted);
   font-size: 0.9rem;
@@ -584,6 +591,7 @@ textarea {
 .intro-panels {
   display: grid;
   gap: 18px;
+  margin-top: 36px;
 }
 
 .glass-panel,
@@ -1381,7 +1389,11 @@ textarea {
 }
 
 .legal-page {
-  padding-top: 140px;
+  padding-top: 6px;
+}
+
+.legal-page .section {
+  padding-top: 20px;
 }
 
 .legal-layout {
@@ -1513,7 +1525,7 @@ textarea {
 
 .footer-layout {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 24px;
   padding-top: 26px;
@@ -1524,6 +1536,33 @@ textarea {
   gap: 12px;
   flex-wrap: wrap;
   justify-content: flex-end;
+}
+
+.footer-brand {
+  display: grid;
+  gap: 3px;
+}
+
+.footer-nav,
+.footer-meta {
+  margin-top: 2px;
+}
+
+.footer-business {
+  margin: 8px 0 0;
+  color: rgba(203, 214, 232, 0.82);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+}
+
+.footer-business-link {
+  color: #eef4ff;
+  font-weight: 700;
+}
+
+.footer-business-link:hover {
+  color: #ffffff;
 }
 
 .reveal {
@@ -1712,15 +1751,11 @@ textarea {
   }
 
   .testimonial-track {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 18px;
-    transform: none !important;
+    min-height: 320px;
   }
 
   .testimonial-card {
-    opacity: 1;
-    transform: none;
+    padding: 26px;
   }
 
   .slider-arrow {
@@ -1744,6 +1779,22 @@ textarea {
     border: none;
     background: transparent;
     box-shadow: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-section {
+    min-height: auto;
+  }
+
+  .hero-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-visual,
+  .code-card,
+  .stack-card {
+    display: none !important;
   }
 }
 
@@ -1804,6 +1855,10 @@ textarea {
     padding: 84px 0;
   }
 
+  .legal-page .section {
+    padding-top: 10px;
+  }
+
   .hero-shell,
   .intro-layout,
   .skills-layout,
@@ -1821,6 +1876,15 @@ textarea {
 
   .skill-pills {
     grid-template-columns: 1fr;
+  }
+
+  .hero-visual,
+  .skill-pills {
+    display: none;
+  }
+
+  .intro-panels {
+    margin-top: 0;
   }
 
   .cookie-banner {
@@ -1920,6 +1984,7 @@ textarea {
   .project-card.large,
   .project-card.wide {
     grid-column: auto;
+    grid-row: auto;
   }
 
   .project-showcase {
@@ -1929,12 +1994,11 @@ textarea {
   .portfolio-carousel {
     --portfolio-gap: 14px;
     padding: 16px 14px 24px;
-    margin: -16px -14px -24px;
+    margin: 0;
   }
 
   .project-mini-card {
     width: 100%;
-    min-height: 240px;
   }
 
   .portfolio-grid {
@@ -1942,18 +2006,20 @@ textarea {
     gap: 14px;
   }
 
-  .project-card,
-  .project-mini-card {
-    min-height: 240px;
-  }
-
-  .project-card,
-  .project-media {
+  .project-showcase {
+    grid-row: auto;
     height: auto;
   }
 
+  .project-card,
+  .project-mini-card {
+    height: 250px;
+    min-height: 250px;
+  }
+
+  .project-card,
   .project-media {
-    height: 240px;
+    height: 100%;
   }
 
   .project-media img {
@@ -1975,6 +2041,10 @@ textarea {
   .project-overlay p {
     font-size: 0.88rem;
     line-height: 1.45;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   .project-tags {
