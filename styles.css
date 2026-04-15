@@ -2049,6 +2049,16 @@ textarea {
     gap: 14px;
   }
 
+  .project-card.large,
+  .project-card.small,
+  .project-card.wide,
+  .project-mini-card {
+    height: 250px !important;
+    min-height: 250px !important;
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+
   .project-showcase {
     grid-row: auto;
     height: auto;
