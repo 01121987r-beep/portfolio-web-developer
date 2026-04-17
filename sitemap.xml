@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.demianweb.it/</loc>
+    <loc>https://demianweb.it/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.demianweb.it/index-en.html</loc>
+    <loc>https://demianweb.it/index-en.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.demianweb.it/privacy.html</loc>
+    <loc>https://demianweb.it/privacy.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://www.demianweb.it/privacy-en.html</loc>
+    <loc>https://demianweb.it/privacy-en.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://www.demianweb.it/cookie.html</loc>
+    <loc>https://demianweb.it/cookie.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://www.demianweb.it/cookie-en.html</loc>
+    <loc>https://demianweb.it/cookie-en.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>

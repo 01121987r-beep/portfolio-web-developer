@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.demianweb.it/sitemap.xml
+Sitemap: https://demianweb.it/sitemap.xml
