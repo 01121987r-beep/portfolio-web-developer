@@ -814,7 +814,7 @@ textarea {
   z-index: 3;
 }
 
-.project-card:has(a[href*="aurea-atelier"]):hover {
+.project-card:has(a[href*="wishtravel.it"]):hover {
   transform: translateY(-10px) scaleX(1.08) scaleY(1.03);
   z-index: 3;
 }
