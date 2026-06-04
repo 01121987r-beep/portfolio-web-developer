@@ -40,6 +40,7 @@ const openContactModal = () => {
   modal.classList.add('is-open');
   modal.setAttribute('aria-hidden', 'false');
   document.body.classList.add('menu-open');
+  document.body.classList.add('modal-open');
   requestAnimationFrame(() => modal?.querySelector('form')?.querySelector('input, textarea')?.focus());
 };
 
@@ -48,6 +49,7 @@ const closeContactModal = () => {
   modal.classList.remove('is-open');
   modal.setAttribute('aria-hidden', 'true');
   document.body.classList.remove('menu-open');
+  document.body.classList.remove('modal-open');
 };
 
 const openCallModal = () => {
@@ -57,6 +59,7 @@ const openCallModal = () => {
   callModal.classList.add('is-open');
   callModal.setAttribute('aria-hidden', 'false');
   document.body.classList.add('menu-open');
+  document.body.classList.add('modal-open');
   requestAnimationFrame(() => callModal?.querySelector('form')?.querySelector('input, textarea')?.focus());
 };
 
@@ -65,6 +68,7 @@ const closeCallModal = () => {
   callModal.classList.remove('is-open');
   callModal.setAttribute('aria-hidden', 'true');
   document.body.classList.remove('menu-open');
+  document.body.classList.remove('modal-open');
 };
 
 const openThanksModal = () => {
@@ -74,6 +78,7 @@ const openThanksModal = () => {
   thanksModal.classList.add('is-open');
   thanksModal.setAttribute('aria-hidden', 'false');
   document.body.classList.add('menu-open');
+  document.body.classList.add('modal-open');
 };
 
 const closeThanksModal = () => {
@@ -81,6 +86,7 @@ const closeThanksModal = () => {
   thanksModal.classList.remove('is-open');
   thanksModal.setAttribute('aria-hidden', 'true');
   document.body.classList.remove('menu-open');
+  document.body.classList.remove('modal-open');
 };
 
 if (header) {
