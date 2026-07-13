@@ -24,7 +24,6 @@ const contactEmail = '01121987r@gmail.com';
 const FORM_DELIVERY_MODE = 'formsubmit'; // 'mailto' | 'formsubmit'
 const formSubmitEndpoint = `https://formsubmit.co/ajax/${contactEmail}`;
 let activeIndex = 0;
-let sliderTimer;
 
 const closeMenu = () => {
   if (!header || !menuToggle) return;
@@ -346,25 +345,15 @@ const showSlide = (index) => {
   });
 };
 
-const restartSlider = () => {
-  window.clearInterval(sliderTimer);
-  sliderTimer = window.setInterval(() => {
-    showSlide(activeIndex + 1);
-  }, 4200);
-};
-
 if (testimonialCards.length) {
   showSlide(0);
-  restartSlider();
 
   prevBtn?.addEventListener('click', () => {
     showSlide(activeIndex - 1);
-    restartSlider();
   });
 
   nextBtn?.addEventListener('click', () => {
     showSlide(activeIndex + 1);
-    restartSlider();
   });
 }
 
