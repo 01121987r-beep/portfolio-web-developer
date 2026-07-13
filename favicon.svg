@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="faviconTitle faviconDesc">
+  <title id="faviconTitle">Favicon Demian Buscatti web designer e sviluppatore web</title>
+  <desc id="faviconDesc">Icona codice Demian Buscatti per siti web, applicazioni web, e-commerce e gestionali</desc>
+  <defs>
+    <linearGradient id="codeGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14ff9d"/>
+      <stop offset="55%" stop-color="#0fe07b"/>
+      <stop offset="100%" stop-color="#58ffd1"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="120" height="120" rx="24" fill="#07110c"/>
+  <path d="M37 32 19 60l18 28" fill="none" stroke="url(#codeGlow)" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/>
+  <path d="M83 32 101 60 83 88" fill="none" stroke="#eefcf4" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/>
+  <path d="M70 24 50 96" fill="none" stroke="url(#codeGlow)" stroke-linecap="round" stroke-width="10"/>
+  <circle cx="91" cy="24" r="5" fill="#58ffd1"/>
+</svg>
