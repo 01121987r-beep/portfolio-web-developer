@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Demian Buscatti | Web Designer and Web Developer</title>
+    <title>Custom Website Design &amp; Development | DemianWeb</title>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3J601SW05"></script>
     <script>
@@ -24,7 +24,7 @@
     <meta name="theme-color" content="#040a07" />
     <meta
       name="description"
-      content="Web designer and web developer specialized in creating professional websites, web applications, e-commerce platforms and management systems. Request a free demo!"
+      content="Custom websites, e-commerce and web applications for businesses and professionals in Rome, Ostia and across Italy. Request a free demo."
     />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="author" content="Demian Buscatti" />
@@ -36,39 +36,101 @@
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="Demian Buscatti - Web Developer" />
-    <meta property="og:title" content="Demian Buscatti | Web Designer and Web Developer" />
-    <meta property="og:description" content="Web designer and web developer specialized in creating professional websites, web applications, e-commerce platforms and management systems. Request a free demo!" />
+    <meta property="og:title" content="Custom Website Design &amp; Development | DemianWeb" />
+    <meta property="og:description" content="Custom websites, e-commerce and web applications for businesses and professionals in Rome, Ostia and across Italy. Request a free demo." />
     <meta property="og:url" content="https://demianweb.it/index-en.html" />
     <meta property="og:image" content="https://demianweb.it/images/logo-demian-buscatti.webp" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Demian Buscatti | Web Designer and Web Developer" />
-    <meta name="twitter:description" content="Web designer and web developer specialized in creating professional websites, web applications, e-commerce platforms and management systems. Request a free demo!" />
+    <meta name="twitter:title" content="Custom Website Design &amp; Development | DemianWeb" />
+    <meta name="twitter:description" content="Custom websites, e-commerce and web applications for businesses and professionals in Rome, Ostia and across Italy. Request a free demo." />
     <meta name="twitter:image" content="https://demianweb.it/images/logo-demian-buscatti.webp" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "Demian Buscatti - Web Developer",
-        "url": "https://demianweb.it/index-en.html",
-        "image": "https://demianweb.it/images/logo-demian-buscatti.webp",
-        "logo": "https://demianweb.it/images/logo-demian-buscatti.webp",
-        "description": "Web designer and web developer specialized in creating professional websites, web applications, e-commerce platforms and management systems. Request a free demo!",
-        "email": "01121987r@gmail.com",
-        "telephone": "+393517429085",
-        "vatID": "IT18512301005",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Via Giuseppe Renato Bellot",
-          "postalCode": "00122",
-          "addressLocality": "Roma",
-          "addressCountry": "IT"
-        },
-        "sameAs": [
-          "https://www.linkedin.com/in/demian-buscatti-9a42303ab",
-          "https://www.facebook.com/profile.php?id=61574333067722"
-        ],
-        "areaServed": ["IT", "Remote"],
-        "inLanguage": "en"
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://demianweb.it/#person",
+            "name": "Demian Buscatti",
+            "url": "https://demianweb.it/",
+            "jobTitle": "Web Designer & Web Developer",
+            "image": "https://demianweb.it/images/logo-demian-buscatti.webp",
+            "email": "01121987r@gmail.com",
+            "telephone": "+393517429085",
+            "vatID": "IT18512301005",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Via Giuseppe Renato Bellot",
+              "postalCode": "00122",
+              "addressLocality": "Roma",
+              "addressCountry": "IT"
+            },
+            "sameAs": [
+              "https://www.linkedin.com/in/demian-buscatti-9a42303ab",
+              "https://www.facebook.com/profile.php?id=61574333067722"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://demianweb.it/#website",
+            "url": "https://demianweb.it/",
+            "name": "DemianWeb",
+            "alternateName": "Demian Web",
+            "inLanguage": [
+              "it",
+              "en"
+            ],
+            "publisher": {
+              "@id": "https://demianweb.it/#person"
+            }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://demianweb.it/index-en.html#webpage",
+            "url": "https://demianweb.it/index-en.html",
+            "name": "Custom Website Design & Development | DemianWeb",
+            "description": "Custom websites, e-commerce and web applications for businesses and professionals in Rome, Ostia and across Italy. Request a free demo.",
+            "inLanguage": "en",
+            "isPartOf": {
+              "@id": "https://demianweb.it/#website"
+            },
+            "author": {
+              "@id": "https://demianweb.it/#person"
+            },
+            "mainEntity": {
+              "@id": "https://demianweb.it/#web-development"
+            }
+          },
+          {
+            "@type": "Service",
+            "@id": "https://demianweb.it/#web-development",
+            "name": "Custom website design and development",
+            "description": "Remote design and development of custom websites, e-commerce and web applications for businesses and professionals across Italy, including Rome and Ostia.",
+            "serviceType": [
+              "Custom website development",
+              "E-commerce development",
+              "Web application development"
+            ],
+            "url": "https://demianweb.it/",
+            "provider": {
+              "@id": "https://demianweb.it/#person"
+            },
+            "areaServed": [
+              {
+                "@type": "Country",
+                "name": "Italia"
+              },
+              {
+                "@type": "City",
+                "name": "Roma"
+              },
+              {
+                "@type": "Place",
+                "name": "Ostia"
+              }
+            ]
+          }
+        ]
       }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -77,7 +139,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20261011-11" />
+    <link rel="stylesheet" href="styles.css?v=20261011-13" />
   </head>
   <body class="studio-page">
     <div class="site-intro" hidden role="dialog" aria-modal="true" aria-labelledby="intro-name">
@@ -164,7 +226,7 @@
             <span class="eyebrow">DemianWeb / Independent design & development</span>
             <h1>Your business.<br>Your website.<br><em>100% custom.</em></h1>
             <div class="hero-bottom">
-              <p>I design and develop websites, e-commerce and web applications in custom code. A distinctive identity, a clear experience and the features your business needs.</p>
+              <p>I design and develop custom websites, e-commerce and web applications for businesses and professionals across Italy, including Rome and Ostia. I create custom-coded solutions with personalised design, intuitive navigation and attention to SEO, built to showcase your business and make it easier for new clients to get in touch.</p>
               <div class="hero-actions">
                 <a class="btn btn-primary" href="#portfolio">Explore the portfolio</a>
                 <button class="btn btn-outline" type="button" data-open-contact-modal="true">Request a demo</button>
@@ -425,6 +487,16 @@
                   <li>small businesses wanting a modern and immediate online presence</li>
                 </ul>
               </div>
+              <div class="pricing-target pricing-included">
+                <strong>Included in development:</strong>
+                <ul>
+                  <li>Free demo to evaluate the proposal.</li>
+                  <li>Basic SEO: page titles and descriptions, content structure and indexing settings, where applicable.</li>
+                  <li>Google tools: setup of measurement tags and Google Analytics, plus website verification and connection to Google Search Console.</li>
+                  <li>Domain setup and connection.</li>
+                  <li>Hosting or VPS setup, according to the project’s needs.</li>
+                </ul>
+              </div>
               <span class="pricing-badge">from 249 €</span>
             </article>
 
@@ -446,6 +518,16 @@
                   <li>gyms</li>
                   <li>medical centers</li>
                   <li>organizations that want to present their business online in a complete and professional way</li>
+                </ul>
+              </div>
+              <div class="pricing-target pricing-included">
+                <strong>Included in development:</strong>
+                <ul>
+                  <li>Free demo to evaluate the proposal.</li>
+                  <li>Basic SEO: page titles and descriptions, content structure and indexing settings, where applicable.</li>
+                  <li>Google tools: setup of measurement tags and Google Analytics, plus website verification and connection to Google Search Console.</li>
+                  <li>Domain setup and connection.</li>
+                  <li>Hosting or VPS setup, according to the project’s needs.</li>
                 </ul>
               </div>
               <span class="pricing-badge">from 499 €</span>
@@ -471,6 +553,16 @@
                   <li>interactive web services</li>
                 </ul>
               </div>
+              <div class="pricing-target pricing-included">
+                <strong>Included in development:</strong>
+                <ul>
+                  <li>Free demo to evaluate the proposal.</li>
+                  <li>Basic SEO: page titles and descriptions, content structure and indexing settings, where applicable.</li>
+                  <li>Google tools: setup of measurement tags and Google Analytics, plus website verification and connection to Google Search Console.</li>
+                  <li>Domain setup and connection.</li>
+                  <li>Hosting or VPS setup, according to the project’s needs.</li>
+                </ul>
+              </div>
               <span class="pricing-badge">from 899 €</span>
             </article>
 
@@ -494,8 +586,24 @@
                   <li>appointment-based businesses</li>
                 </ul>
               </div>
+              <div class="pricing-target pricing-included">
+                <strong>Included in development:</strong>
+                <ul>
+                  <li>Free demo to evaluate the proposal.</li>
+                  <li>Basic SEO: page titles and descriptions, content structure and indexing settings, where applicable.</li>
+                  <li>Google tools: setup of measurement tags and Google Analytics, plus website verification and connection to Google Search Console.</li>
+                  <li>Domain setup and connection.</li>
+                  <li>Hosting or VPS setup, according to the project’s needs.</li>
+                </ul>
+              </div>
               <span class="pricing-badge">from 599 €</span>
             </article>
+          </div>
+          <div class="pricing-terms">
+            <h3>Domain and infrastructure</h3>
+            <p>Domain, hosting or VPS purchases and renewals are not included in the development price. You can purchase them directly with my guidance or ask me to arrange the purchase, with costs agreed in the quote and a search for cost-effective solutions.</p>
+            <h3>Pricing note</h3>
+            <p>Prices start from the amounts shown. The development cost is agreed based on the pages and features required. VAT is not charged under the Italian flat-rate tax regime (regime forfettario).</p>
           </div>
         </div>
       </section>

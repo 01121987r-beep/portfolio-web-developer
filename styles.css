@@ -942,6 +942,8 @@ textarea {
 
 .pricing-card {
   position: relative;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   padding: 28px;
   border-radius: var(--radius-xl);
@@ -992,7 +994,31 @@ textarea {
   margin-top: 2px;
 }
 
+.pricing-included,
+.pricing-terms {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pricing-card .pricing-included {
+  margin-bottom: 20px;
+}
+
+.pricing-terms h3 {
+  margin: 0 0 10px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1rem;
+}
+
+.pricing-terms p {
+  margin: 0 0 20px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
 .pricing-label {
+  align-self: flex-start;
   display: inline-flex;
   margin-bottom: 18px;
   padding: 7px 12px;
@@ -1008,7 +1034,8 @@ textarea {
 .pricing-badge {
   position: relative;
   display: inline-block;
-  margin-top: 20px;
+  align-self: flex-start;
+  margin-top: auto;
   padding: 10px 16px;
   border-radius: 999px;
   background: linear-gradient(135deg, rgba(20, 255, 157, 0.92), rgba(88, 255, 209, 0.86));
