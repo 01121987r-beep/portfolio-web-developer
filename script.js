@@ -17,9 +17,6 @@ const thanksModal = document.querySelector('#thanksModal');
 const thanksClosers = document.querySelectorAll('[data-close-thanks-modal="true"]');
 const isEnglish = document.documentElement.lang === 'en';
 const isMobile = window.matchMedia('(max-width: 760px)').matches;
-const cookieStorageKey = 'demian_buscatti_cookie_consent_v1';
-const cookieConsentVersion = 'v2';
-const cookieConsentMaxAgeMs = 180 * 24 * 60 * 60 * 1000; // 6 months
 const contactEmail = '01121987r@gmail.com';
 const FORM_DELIVERY_MODE = 'formsubmit'; // 'mailto' | 'formsubmit'
 const formSubmitEndpoint = `https://formsubmit.co/ajax/${contactEmail}`;
@@ -209,12 +206,16 @@ thanksClosers.forEach((trigger) => {
   trigger.addEventListener('click', closeThanksModal);
 });
 
-if (revealItems.length && !isMobile) {
+if (revealItems.length && !isMobile && 'IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   const revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
+          entry.target.animate?.(
+            [{ opacity: 0, transform: 'translateY(24px)' }, { opacity: 1, transform: 'translateY(0)' }],
+            { duration: 650, easing: 'ease-out' }
+          );
           revealObserver.unobserve(entry.target);
         }
       });
@@ -230,7 +231,7 @@ if (revealItems.length && !isMobile) {
   revealItems.forEach((item) => item.classList.add('is-visible'));
 }
 
-if (qualityMetrics.length && !isMobile) {
+if (qualityMetrics.length && !isMobile && 'IntersectionObserver' in window) {
   const qualityObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -619,87 +620,14 @@ if (!isMobile) {
   );
 }
 
-const readCookieConsentState = () => {
-  const raw = localStorage.getItem(cookieStorageKey);
-  if (!raw) return null;
-
-  try {
-    const parsed = JSON.parse(raw);
-    if (parsed && typeof parsed === 'object') {
-      return parsed;
-    }
-  } catch {
-    return {
-      choice: raw,
-      timestamp: 0,
-      version: 'legacy'
-    };
-  }
-
-  return null;
-};
-
-const shouldShowCookieBanner = () => {
-  const state = readCookieConsentState();
-  if (!state) return true;
-  if (state.version !== cookieConsentVersion) return true;
-  if (typeof state.timestamp !== 'number') return true;
-  return Date.now() - state.timestamp > cookieConsentMaxAgeMs;
-};
-
-const saveCookieConsentState = (choice) => {
-  localStorage.setItem(
-    cookieStorageKey,
-    JSON.stringify({
-      choice,
-      version: cookieConsentVersion,
-      timestamp: Date.now()
-    })
-  );
-};
-
-const createCookieBanner = () => {
-  if (!shouldShowCookieBanner()) return;
-
-  const banner = document.createElement('div');
-  banner.className = 'cookie-banner is-visible';
-
-  const privacyLink = isEnglish ? 'privacy-en.html' : 'privacy.html';
-  const cookieLink = isEnglish ? 'cookie-en.html' : 'cookie.html';
-
-  banner.innerHTML = `
-    <div class="cookie-panel">
-      <span class="cookie-topline">&gt; cookie.init()</span>
-      <p class="cookie-copy">
-        ${
-          isEnglish
-            ? `This website uses only technical cookies and equivalent local storage tools required for functionality. No profiling or marketing cookies are directly set. Read <a href="${privacyLink}">Privacy Policy</a> and <a href="${cookieLink}">Cookie Policy</a> for details.`
-            : `Questo sito utilizza solo cookie tecnici e strumenti equivalenti di memorizzazione locale necessari al funzionamento. Non vengono impostati direttamente cookie di profilazione o marketing. Leggi <a href="${privacyLink}">Privacy Policy</a> e <a href="${cookieLink}">Cookie Policy</a> per i dettagli.`
-        }
-      </p>
-      <div class="cookie-actions">
-        <button class="btn btn-primary" type="button" data-cookie-action="acknowledge">${isEnglish ? 'Got it' : 'Ho capito'}</button>
-      </div>
-    </div>
-  `;
-
-  const closeBanner = (value) => {
-    saveCookieConsentState(value);
-    banner.remove();
-  };
-
-  banner.querySelector('[data-cookie-action="acknowledge"]')?.addEventListener('click', () => closeBanner('acknowledged'));
-
-  document.body.appendChild(banner);
-};
-
-createCookieBanner();
-
 const siteIntro = document.querySelector('.site-intro');
 const introMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const languageIntroKey = 'demian_language_navigation';
+const introSeenKey = 'demian_intro_seen';
+let introSeen = false;
 let skipLanguageIntro = false;
 try {
+  introSeen = sessionStorage.getItem(introSeenKey) === '1';
   const navigation = JSON.parse(sessionStorage.getItem(languageIntroKey) || 'null');
   sessionStorage.removeItem(languageIntroKey);
   skipLanguageIntro = navigation?.path === window.location.pathname && Date.now() - navigation.time < 30000;
@@ -716,7 +644,8 @@ document.querySelectorAll('.lang-switch a').forEach((link) => {
     }
   });
 });
-if (siteIntro && !introMotion.matches && !skipLanguageIntro) {
+if (siteIntro && !introMotion.matches && !skipLanguageIntro && !introSeen) {
+  try { sessionStorage.setItem(introSeenKey, '1'); } catch { /* The intro remains skippable without storage. */ }
   const entryFocus = document.activeElement;
   const background = [...document.body.children]
     .filter((element) => element !== siteIntro && !['SCRIPT', 'STYLE'].includes(element.tagName))
