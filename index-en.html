@@ -21,7 +21,7 @@
     <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <meta name="theme-color" content="#0b1020" />
+    <meta name="theme-color" content="#040a07" />
     <meta
       name="description"
       content="Web designer and web developer specialized in creating professional websites, web applications, e-commerce platforms and management systems. Request a free demo!"
@@ -77,9 +77,38 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20261011-8" />
   </head>
-  <body>
+  <body class="studio-page">
+    <div class="site-intro" hidden role="dialog" aria-modal="true" aria-labelledby="intro-name">
+      <div class="intro-grid" aria-hidden="true"></div>
+      <div class="intro-orbit" aria-hidden="true"></div>
+      <button class="intro-skip" type="button">Enter website <span>ESC</span></button>
+      <div class="intro-stage">
+        <div class="intro-symbol" aria-hidden="true">
+          <span class="intro-coordinate">01 / IDENTITY</span>
+          <svg viewBox="0 0 120 120" class="intro-logo">
+            <defs><linearGradient id="intro-glow" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#14ff9d"/><stop offset="55%" stop-color="#0fe07b"/><stop offset="100%" stop-color="#58ffd1"/></linearGradient></defs>
+            <rect class="intro-frame" x="8" y="8" width="104" height="104" rx="28" fill="#07110c" stroke="#294137"/>
+            <path class="intro-bracket intro-left" pathLength="1" d="M38 34 22 60l16 26" fill="none" stroke="url(#intro-glow)" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+            <path class="intro-bracket intro-right" pathLength="1" d="M82 34 98 60 82 86" fill="none" stroke="#eefcf4" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+            <path class="intro-slash" pathLength="1" d="M68 28 50 92" fill="none" stroke="url(#intro-glow)" stroke-linecap="round" stroke-width="8"/>
+            <circle class="intro-dot" cx="88" cy="28" r="4" fill="#58ffd1"/>
+          </svg>
+        </div>
+        <div class="intro-content">
+          <p class="intro-kicker">FROM AN IDEA. TO CODE.</p>
+          <h2 id="intro-name">demian<span>web</span><span class="intro-cursor" aria-hidden="true">_</span></h2>
+          <div class="intro-editor" aria-hidden="true">
+            <div><span class="intro-line-number">01</span><span><b>const</b> studio = <i>"DemianWeb"</i>;</span></div>
+            <div><span class="intro-line-number">02</span><span>create({ design, code, seo });</span></div>
+            <div><span class="intro-line-number">03</span><span class="intro-comment">// Built around your business.</span></div>
+          </div>
+          <p class="intro-caption">Web Developer &amp; Digital Creator</p>
+        </div>
+      </div>
+      <div class="intro-footer" aria-hidden="true"><span>DESIGN / CODE / SEO</span><div class="intro-track"><span></span></div><span class="intro-progress">0%</span></div>
+    </div>
     <div class="page-noise"></div>
     <div class="ambient ambient-a"></div>
     <div class="ambient ambient-b"></div>
@@ -129,61 +158,22 @@
 
     <main>
       <section class="hero-section" id="top">
-        <div class="hero-grid-lines"></div>
-        <div class="particles" aria-hidden="true">
-          <span></span><span></span><span></span><span></span><span></span><span></span>
-        </div>
-
+        <div class="hero-grid-lines" aria-hidden="true"></div>
         <div class="section-shell hero-shell">
           <div class="hero-copy reveal">
-            <span class="eyebrow">Modern digital experiences • Refined UI • Real performance</span>
-            <h1>I build custom websites that are fast and tailored to every need.</h1>
-            <p>
-              I create websites, ecommerce projects and web applications without website builders: just custom code, fast, reliable and crafted with attention to every detail.
-            </p>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="#portfolio">View projects</a>
-              <button class="btn btn-outline" type="button" data-open-call-modal="true">Request a call</button>
-            </div>
-            <div class="hero-metrics">
-              <article>
-                <strong>30+</strong>
-                <span>projects launched</span>
-              </article>
-              <article>
-                <strong>95+</strong>
-                <span>average Lighthouse score</span>
-              </article>
-              <article>
-                <strong>100% <small>code</small></strong>
-                <span>zero builders</span>
-              </article>
+            <span class="eyebrow">DemianWeb / Independent design & development</span>
+            <h1>Your business.<br>Your website.<br><em>100% custom.</em></h1>
+            <div class="hero-bottom">
+              <p>I design and develop websites, e-commerce and web applications in custom code. A distinctive identity, a clear experience and the features your business needs.</p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="#portfolio">Explore the portfolio</a>
+                <button class="btn btn-outline" type="button" data-open-contact-modal="true">Request your free demo</button>
+              </div>
             </div>
           </div>
-
-          <div class="hero-visual reveal delay-1">
-            <div class="orbital orbital-a"></div>
-            <div class="orbital orbital-b"></div>
-            <div class="glass-card code-card">
-              <div class="glass-topline">
-                <span></span><span></span><span></span>
-              </div>
-              <div class="code-lines">
-                <div><small>interface</small> ProductExperience <small>{</small></div>
-                <div><span>motion:</span> <em>"fluid"</em>;</div>
-                <div><span>frontend:</span> <em>"performant"</em>;</div>
-                <div><span>visuals:</span> <em>"premium"</em>;</div>
-                <div><span>delivery:</span> <em>"production-ready"</em>;</div>
-                <div><small>}</small></div>
-              </div>
-            </div>
-            <div class="glass-card stack-card">
-              <span class="eyebrow muted">Favorite stack</span>
-              <strong>HTML / CSS / JS</strong>
-              <strong>React / Node</strong>
-              <strong>Python / Flask</strong>
-              <p>From concept to launch, with a fast and clean workflow.</p>
-            </div>
+          <div class="hero-signature reveal delay-1">
+            <div class="signature-mark" aria-hidden="true"><span>&lt;</span><i>/</i><span>&gt;</span></div>
+            <div class="signature-caption"><span>DESIGN / CODE / SEO</span><p>One point of contact.<br>From the idea to launch.</p></div>
           </div>
         </div>
       </section>
@@ -220,104 +210,97 @@
 
       <section class="section portfolio-section" id="portfolio">
         <div class="section-shell">
-          <div class="section-heading reveal">
-            <span class="eyebrow">Portfolio</span>
-            <h2>Projects designed to be memorable and actually perform.</h2>
+          <div class="portfolio-heading reveal">
+            <div><span class="eyebrow">Portfolio / 05 projects</span><h2>Projects, made to measure.</h2></div>
+            <p>From e-commerce to professional websites. Select a project to explore its design and features.</p>
           </div>
-
-          <div class="portfolio-desktop">
-            <a class="site-preview reveal" href="https://01121987r-beep.github.io/pizzeria-gourmet/" target="_blank" rel="noreferrer">
-              <div class="site-preview-media">
-                <img src="images/portfolio-pizzeria-gourmet.jpg" alt="Pizzeria Gourmet website homepage" />
-              </div>
-              <div class="site-preview-copy">
-                <span>Restaurant</span>
-                <h3>Pizzeria Gourmet</h3>
-                <p>Pizzeria website developed with HTML, CSS and JavaScript, featuring an immersive experience, guided booking flow and an AI chatbot that supports customers on key requests. SEO-friendly structure, performance optimization and content strategy designed to improve local visibility and increase conversions on both mobile and desktop.</p>
-              </div>
-            </a>
-
-            <a class="site-preview reveal delay-1" href="https://www.wishtravel.it/" target="_blank" rel="noreferrer">
-              <div class="site-preview-media">
-                <img src="images/portfolio-wishtravel.jpg" alt="WishTravel website homepage" />
-              </div>
-              <div class="site-preview-copy">
-                <span>Travel</span>
-                <h3>WishTravel</h3>
-                <p>Custom travel website with frontend in HTML, CSS and JavaScript and a dedicated Node.js backend with admin panel. It includes external API integrations, payment collection workflows, and automatic logic that hides pages/sections when the client has not added content yet, keeping the website clean, consistent and SEO-optimized.</p>
-              </div>
-            </a>
-
-            <a class="site-preview reveal delay-2" href="https://www.vellutobeautylab.it/" target="_blank" rel="noreferrer">
-              <div class="site-preview-media">
-                <img src="images/portfolio-vellutobeautylab.jpg" alt="Velluto Beauty Lab website homepage" />
-              </div>
-              <div class="site-preview-copy">
-                <span>Beauty</span>
-                <h3>Velluto Beauty Lab</h3>
-                <p>Interactive multi-page beauty website built in HTML, CSS and JavaScript, with clear paths across treatments, services and informational sections. Includes contact forms for lead generation, SEO-optimized content and a responsive structure designed to communicate a premium and professional brand identity.</p>
-              </div>
-            </a>
-
-            <a class="site-preview reveal delay-3" href="https://www.antoniotizianosergi.it/" target="_blank" rel="noreferrer">
-              <div class="site-preview-media">
-                <img src="images/portfolio-antoniotizianosergi.jpg" alt="Antonio Tiziano Sergi website homepage" />
-              </div>
-              <div class="site-preview-copy">
-                <span>Analogist</span>
-                <h3>Antonio Tiziano Sergi</h3>
-                <p>Professional portfolio website for an analogist specialist, developed in HTML, CSS and JavaScript to communicate authority, method and services effectively. Structured with strong on-page SEO, content hierarchy and strategic calls to action, helping improve visibility and turn visits into consultation requests.</p>
-              </div>
-            </a>
-          </div>
-
-          <div class="portfolio-grid portfolio-mobile">
-            <article class="project-card large reveal">
-              <a class="project-media" href="https://01121987r-beep.github.io/pizzeria-gourmet/" target="_blank" rel="noreferrer">
-                <img src="images/portfolio-pizzeria-gourmet.jpg" alt="Preview of Pizzeria Gourmet website" />
-                <div class="project-overlay compact">
-                  <span>Restaurant</span>
-                  <h3>Pizzeria Gourmet</h3>
-                  <p>High-impact homepage with full-width visuals, brand storytelling and booking-focused calls to action.</p>
-                  <div class="project-tags"><span>Motion</span><span>Branding</span><span>Conversion</span></div>
-                </div>
+          <div class="project-gallery" data-project-gallery>
+            <div class="project-tabs" aria-label="Choose a project" hidden>
+              <button class="project-tab" type="button" id="project-tab-gblind" data-project-target="project-gblind"><span class="project-tab-number">01</span><span><strong>G-Blind</strong><small>E-commerce</small></span></button>
+              <button class="project-tab" type="button" id="project-tab-wishtravel" data-project-target="project-wishtravel"><span class="project-tab-number">02</span><span><strong>WishTravel</strong><small>Travel</small></span></button>
+              <button class="project-tab" type="button" id="project-tab-velluto" data-project-target="project-velluto"><span class="project-tab-number">03</span><span><strong>Velluto Beauty Lab</strong><small>Beauty</small></span></button>
+              <button class="project-tab" type="button" id="project-tab-sergi" data-project-target="project-sergi"><span class="project-tab-number">04</span><span><strong>Antonio Tiziano Sergi</strong><small>Analogist</small></span></button>
+              <button class="project-tab" type="button" id="project-tab-teresa" data-project-target="project-teresa"><span class="project-tab-number">05</span><span><strong>Teresa Criniti</strong><small>Psychotherapy</small></span></button>
+            </div>
+            <article class="project-study" id="project-gblind" aria-labelledby="project-title-gblind">
+              <a class="study-preview" href="https://www.gblind.it/" target="_blank" rel="noopener noreferrer" aria-label="Visit G-Blind (new tab)">
+                <div class="study-browser" aria-hidden="true"><span>● ● ●</span><span>gblind.it</span></div>
+                <img src="images/portfolio-gblind.jpg" alt="Real homepage of G-Blind" loading="lazy" />
+                <span class="study-open">Explore the live website</span>
               </a>
+              <div class="study-copy">
+                <span class="eyebrow">E-commerce · Collectibles</span>
+                <h3 id="project-title-gblind">G-Blind</h3>
+                <h4>An online store with personality.</h4>
+                <p>A custom e-commerce site for blind boxes, figures and collectible plush toys. Its playful identity, animated introduction and filterable catalogue guide visitors from discovering products to the cart and checkout.</p>
+                <p>The HTML, CSS and JavaScript frontend connects to a Node.js backend and a dashboard for managing products, stock and orders. G-Buddy assists visitors and supports operator handover; product pages, structured data and optimised images support search visibility.</p>
+                <ul class="study-tags" aria-label="Technologies and features"><li>HTML / CSS / JS</li><li>Node.js</li><li>E-commerce</li><li>SEO</li></ul>
+                <a class="study-link" href="https://www.gblind.it/" target="_blank" rel="noopener noreferrer">Visit gblind.it</a>
+              </div>
             </article>
-
-            <article class="project-card small reveal delay-1">
-              <a class="project-media" href="https://www.wishtravel.it/" target="_blank" rel="noreferrer">
-                <img src="images/portfolio-wishtravel.jpg" alt="Preview of WishTravel website" />
-                <div class="project-overlay compact">
-                  <span>Travel</span>
-                  <h3>WishTravel</h3>
-                  <p>Travel agency website with highlighted offers and user journeys designed to convert visits into inquiries.</p>
-                  <div class="project-tags"><span>Travel UX</span><span>SEO</span><span>Lead Generation</span></div>
-                </div>
+            <article class="project-study" id="project-wishtravel" aria-labelledby="project-title-wishtravel">
+              <a class="study-preview" href="https://www.wishtravel.it/" target="_blank" rel="noopener noreferrer" aria-label="Visit WishTravel (new tab)">
+                <div class="study-browser" aria-hidden="true"><span>● ● ●</span><span>wishtravel.it</span></div>
+                <img src="images/portfolio-wishtravel.jpg" alt="Real homepage of WishTravel" loading="lazy" />
+                <span class="study-open">Explore the live website</span>
               </a>
+              <div class="study-copy">
+                <span class="eyebrow">Travel · Custom platform</span>
+                <h3 id="project-title-wishtravel">WishTravel</h3>
+                <h4>Travel and content, managed independently.</h4>
+                <p>A travel agency website built around the client’s needs: engaging travel proposals and clear journeys from inspiration to an enquiry.</p>
+                <p>An HTML, CSS and JavaScript frontend and a Node.js backend with a dedicated dashboard let the client update content independently. The project integrates external APIs and payment collection; sections without content are automatically hidden. Responsive layouts and an SEO-conscious structure keep the site organised and easy to manage.</p>
+                <ul class="study-tags" aria-label="Technologies and features"><li>HTML / CSS / JS</li><li>Node.js</li><li>API</li><li>SEO</li></ul>
+                <a class="study-link" href="https://www.wishtravel.it/" target="_blank" rel="noopener noreferrer">Visit wishtravel.it</a>
+              </div>
             </article>
-
-            <article class="project-card small reveal delay-2">
-              <a class="project-media" href="https://www.vellutobeautylab.it/" target="_blank" rel="noreferrer">
-                <img src="images/portfolio-vellutobeautylab.jpg" alt="Preview of Velluto Beauty Lab website" />
-                <div class="project-overlay compact">
-                  <span>Beauty</span>
-                  <h3>Velluto Beauty Lab</h3>
-                  <p>Premium beauty website with elegant identity, clear service presentation and direct-contact focused flow.</p>
-                  <div class="project-tags"><span>Luxury UI</span><span>Brand Story</span><span>Lead Form</span></div>
-                </div>
+            <article class="project-study" id="project-velluto" aria-labelledby="project-title-velluto">
+              <a class="study-preview" href="https://www.vellutobeautylab.it/" target="_blank" rel="noopener noreferrer" aria-label="Visit Velluto Beauty Lab (new tab)">
+                <div class="study-browser" aria-hidden="true"><span>● ● ●</span><span>vellutobeautylab.it</span></div>
+                <img src="images/portfolio-vellutobeautylab.jpg" alt="Real homepage of Velluto Beauty Lab" loading="lazy" />
+                <span class="study-open">Explore the live website</span>
               </a>
+              <div class="study-copy">
+                <span class="eyebrow">Beauty · Multi-page website</span>
+                <h3 id="project-title-velluto">Velluto Beauty Lab</h3>
+                <h4>A digital experience as considered as the brand.</h4>
+                <p>A multi-page beauty website with an elegant identity and dedicated journeys through treatments, services and the business presentation. Navigation organises information to help visitors find the right service.</p>
+                <p>Built in HTML, CSS and JavaScript, it includes interactive elements, contact forms and clear calls to action. Content and heading hierarchy are designed with SEO in mind; responsive layouts keep images, text and forms readable and usable on desktop and mobile.</p>
+                <ul class="study-tags" aria-label="Technologies and features"><li>HTML / CSS / JS</li><li>UI Design</li><li>Responsive</li><li>SEO</li></ul>
+                <a class="study-link" href="https://www.vellutobeautylab.it/" target="_blank" rel="noopener noreferrer">Visit vellutobeautylab.it</a>
+              </div>
             </article>
-
-            <article class="project-card wide reveal delay-3">
-              <a class="project-media" href="https://www.antoniotizianosergi.it/" target="_blank" rel="noreferrer">
-                <img src="images/portfolio-antoniotizianosergi.jpg" alt="Preview of Antonio Tiziano Sergi website" />
-                <div class="project-overlay compact">
-                  <span>Analogist</span>
-                  <h3>Antonio Tiziano Sergi</h3>
-                  <p>Professional analogist website with authoritative positioning and consultation-oriented user pathways.</p>
-                  <div class="project-tags"><span>Brand Positioning</span><span>Authority</span><span>Lead Form</span></div>
-                </div>
+            <article class="project-study" id="project-sergi" aria-labelledby="project-title-sergi">
+              <a class="study-preview" href="https://www.antoniotizianosergi.it/" target="_blank" rel="noopener noreferrer" aria-label="Visit Antonio Tiziano Sergi (new tab)">
+                <div class="study-browser" aria-hidden="true"><span>● ● ●</span><span>antoniotizianosergi.it</span></div>
+                <img src="images/portfolio-antoniotizianosergi.jpg" alt="Real homepage of Antonio Tiziano Sergi" loading="lazy" />
+                <span class="study-open">Explore the live website</span>
               </a>
+              <div class="study-copy">
+                <span class="eyebrow">Analogist · Professional website</span>
+                <h3 id="project-title-sergi">Antonio Tiziano Sergi</h3>
+                <h4>Method and professionalism, brought into focus.</h4>
+                <p>A professional portfolio for an analogist, presenting the person, the method and areas of practice through a clear structure that communicates credibility and guides visitors towards an enquiry.</p>
+                <p>Built in HTML, CSS and JavaScript, it combines a responsive interface, personal imagery and content organised for easy reading. Headings, metadata and information hierarchy address on-page SEO; direct contact links make it straightforward to start a conversation with the professional.</p>
+                <ul class="study-tags" aria-label="Technologies and features"><li>HTML / CSS / JS</li><li>Portfolio</li><li>Responsive</li><li>SEO</li></ul>
+                <a class="study-link" href="https://www.antoniotizianosergi.it/" target="_blank" rel="noopener noreferrer">Visit antoniotizianosergi.it</a>
+              </div>
+            </article>
+            <article class="project-study" id="project-teresa" aria-labelledby="project-title-teresa">
+              <a class="study-preview" href="https://www.teresacrinitipsicologa.it/" target="_blank" rel="noopener noreferrer" aria-label="Visit Teresa Criniti (new tab)">
+                <div class="study-browser" aria-hidden="true"><span>● ● ●</span><span>teresacrinitipsicologa.it</span></div>
+                <img src="images/portfolio-teresa-criniti.jpg" alt="Real homepage of Teresa Criniti" loading="lazy" />
+                <span class="study-open">Explore the live website</span>
+              </a>
+              <div class="study-copy">
+                <span class="eyebrow">Psychotherapy · Professional website</span>
+                <h3 id="project-title-teresa">Teresa Criniti</h3>
+                <h4>An online presence that welcomes and guides.</h4>
+                <p>A website for a psychologist and psychotherapist working in Asti and online, with a reassuring visual style, professional portraits and dedicated sections for the approach, services and practice. Interactive detail views explain areas of practice without cluttering the main navigation.</p>
+                <p>An HTML, CSS and JavaScript frontend connects to PHP enquiry forms, with contact-channel preferences and consent management. Local SEO, structured data, responsive images and organised content help present the practice and make the first enquiry straightforward on any device.</p>
+                <ul class="study-tags" aria-label="Technologies and features"><li>HTML / CSS / JS</li><li>PHP</li><li>UI Design</li><li>SEO</li></ul>
+                <a class="study-link" href="https://www.teresacrinitipsicologa.it/" target="_blank" rel="noopener noreferrer">Visit teresacrinitipsicologa.it</a>
+              </div>
             </article>
           </div>
         </div>
@@ -525,7 +508,7 @@
           </div>
 
           <div class="testimonial-slider reveal delay-1">
-            <button class="slider-arrow prev" type="button" aria-label="Previous testimonial">‹</button>
+            <button class="slider-control prev" type="button" aria-label="Previous testimonial">&lt;</button>
             <div class="testimonial-track">
               <article class="testimonial-card is-active">
                 <p>“Professionalism, patience and availability are what define Demian! He created our website, programming it perfectly around our needs and also giving us very useful suggestions. He handled a very complex project: the website could not be just a simple showcase, but a full e-commerce platform with a panel we can use independently to upload services and manage the site. The panel is simple and very intuitive. He also integrated a whitelabel into the website. I highly recommend him!”</p>
@@ -542,8 +525,20 @@
                 <strong>Marina</strong>
                 <span>Logistics specialist</span>
               </article>
+              <article class="testimonial-card">
+                <p>“Really satisfied! In a short time and with great professionalism, he created a wonderful website that fully meets what I was looking for. Beyond my expectations! Well done, Demian.”</p>
+                <strong>Vittoria Rescigno</strong>
+                <span>G-blind</span>
+              </article>
+              <article class="testimonial-card">
+                <p>“Demian contacted me and conveyed great professionalism from the very beginning. You can immediately tell that he knows his work very well, thanks to his training, experience and expertise.</p>
+                <p>I chose to entrust him with the creation of my website and was really satisfied with the result. In addition to providing a high-quality service, he offers very competitive prices and, equally important to me, he has always been kind, helpful and attentive to my needs.</p>
+                <p>He followed every detail with great precision, listening to my requests and always showing great care in his work. A serious, skilled and reliable person whom I recommend.”</p>
+                <strong>Dr Teresa Criniti</strong>
+                <span>Psychologist and Psychotherapist</span>
+              </article>
             </div>
-            <button class="slider-arrow next" type="button" aria-label="Next testimonial">›</button>
+            <button class="slider-control next" type="button" aria-label="Next testimonial">&gt;</button>
           </div>
         </div>
       </section>
@@ -703,6 +698,6 @@
       </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=20261011-8"></script>
   </body>
 </html>

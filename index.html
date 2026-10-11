@@ -21,7 +21,7 @@
     <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <meta name="theme-color" content="#0b1020" />
+    <meta name="theme-color" content="#040a07" />
     <meta
       name="description"
       content="Web designer e sviluppatore web specializzato nella creazione di siti web professionali, applicazioni web, e-commerce e gestionali. Richiedi una demo gratuita!"
@@ -77,9 +77,38 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20261011-8" />
   </head>
-  <body>
+  <body class="studio-page">
+    <div class="site-intro" hidden role="dialog" aria-modal="true" aria-labelledby="intro-name">
+      <div class="intro-grid" aria-hidden="true"></div>
+      <div class="intro-orbit" aria-hidden="true"></div>
+      <button class="intro-skip" type="button">Entra nel sito <span>ESC</span></button>
+      <div class="intro-stage">
+        <div class="intro-symbol" aria-hidden="true">
+          <span class="intro-coordinate">01 / IDENTITY</span>
+          <svg viewBox="0 0 120 120" class="intro-logo">
+            <defs><linearGradient id="intro-glow" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#14ff9d"/><stop offset="55%" stop-color="#0fe07b"/><stop offset="100%" stop-color="#58ffd1"/></linearGradient></defs>
+            <rect class="intro-frame" x="8" y="8" width="104" height="104" rx="28" fill="#07110c" stroke="#294137"/>
+            <path class="intro-bracket intro-left" pathLength="1" d="M38 34 22 60l16 26" fill="none" stroke="url(#intro-glow)" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+            <path class="intro-bracket intro-right" pathLength="1" d="M82 34 98 60 82 86" fill="none" stroke="#eefcf4" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+            <path class="intro-slash" pathLength="1" d="M68 28 50 92" fill="none" stroke="url(#intro-glow)" stroke-linecap="round" stroke-width="8"/>
+            <circle class="intro-dot" cx="88" cy="28" r="4" fill="#58ffd1"/>
+          </svg>
+        </div>
+        <div class="intro-content">
+          <p class="intro-kicker">DA UN’IDEA. AL CODICE.</p>
+          <h2 id="intro-name">demian<span>web</span><span class="intro-cursor" aria-hidden="true">_</span></h2>
+          <div class="intro-editor" aria-hidden="true">
+            <div><span class="intro-line-number">01</span><span><b>const</b> studio = <i>"DemianWeb"</i>;</span></div>
+            <div><span class="intro-line-number">02</span><span>create({ design, code, seo });</span></div>
+            <div><span class="intro-line-number">03</span><span class="intro-comment">// Costruito intorno alla tua attività.</span></div>
+          </div>
+          <p class="intro-caption">Web Developer &amp; Digital Creator</p>
+        </div>
+      </div>
+      <div class="intro-footer" aria-hidden="true"><span>DESIGN / CODE / SEO</span><div class="intro-track"><span></span></div><span class="intro-progress">0%</span></div>
+    </div>
     <div class="page-noise"></div>
     <div class="ambient ambient-a"></div>
     <div class="ambient ambient-b"></div>
@@ -129,61 +158,22 @@
 
     <main>
       <section class="hero-section" id="top">
-        <div class="hero-grid-lines"></div>
-        <div class="particles" aria-hidden="true">
-          <span></span><span></span><span></span><span></span><span></span><span></span>
-        </div>
-
+        <div class="hero-grid-lines" aria-hidden="true"></div>
         <div class="section-shell hero-shell">
           <div class="hero-copy reveal">
-            <span class="eyebrow">Esperienze digitali moderne • UI raffinate • Performance reali</span>
-            <h1>Creo siti web su misura, veloci e adatti a ogni esigenza</h1>
-            <p>
-              Realizzo siti, e-commerce e applicazioni web senza costruttori: solo codice su misura, veloci, affidabili e curati in ogni dettaglio.
-            </p>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="#portfolio">Guarda i progetti</a>
-              <button class="btn btn-outline" type="button" data-open-call-modal="true">Richiedi una call</button>
-            </div>
-            <div class="hero-metrics">
-              <article>
-                <strong>30+</strong>
-                <span>progetti lanciati</span>
-              </article>
-              <article>
-                <strong>95+</strong>
-                <span>score Lighthouse medio</span>
-              </article>
-              <article>
-                <strong>100% <small>codice</small></strong>
-                <span>zero builder</span>
-              </article>
+            <span class="eyebrow">DemianWeb / Design e sviluppo indipendente</span>
+            <h1>La tua attività.<br>Il tuo sito.<br><em>100% su misura.</em></h1>
+            <div class="hero-bottom">
+              <p>Progetto e sviluppo siti web, e-commerce e applicazioni in codice. Un’identità riconoscibile, un’esperienza chiara e le funzionalità che servono alla tua attività.</p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="#portfolio">Esplora il portfolio</a>
+                <button class="btn btn-outline" type="button" data-open-contact-modal="true">Richiedi la demo gratuita</button>
+              </div>
             </div>
           </div>
-
-          <div class="hero-visual reveal delay-1">
-            <div class="orbital orbital-a"></div>
-            <div class="orbital orbital-b"></div>
-            <div class="glass-card code-card">
-              <div class="glass-topline">
-                <span></span><span></span><span></span>
-              </div>
-              <div class="code-lines">
-                <div><small>interface</small> ProductExperience <small>{</small></div>
-                <div><span>motion:</span> <em>"fluid"</em>;</div>
-                <div><span>frontend:</span> <em>"performant"</em>;</div>
-                <div><span>visuals:</span> <em>"premium"</em>;</div>
-                <div><span>delivery:</span> <em>"production-ready"</em>;</div>
-                <div><small>}</small></div>
-              </div>
-            </div>
-            <div class="glass-card stack-card">
-              <span class="eyebrow muted">Stack preferito</span>
-              <strong>HTML / CSS / JS</strong>
-              <strong>React / Node</strong>
-              <strong>Python / Flask</strong>
-              <p>Dal concept alla messa online, con un workflow rapido e pulito.</p>
-            </div>
+          <div class="hero-signature reveal delay-1">
+            <div class="signature-mark" aria-hidden="true"><span>&lt;</span><i>/</i><span>&gt;</span></div>
+            <div class="signature-caption"><span>DESIGN / CODE / SEO</span><p>Un unico referente.<br>Dall’idea alla messa online.</p></div>
           </div>
         </div>
       </section>
@@ -220,104 +210,97 @@
 
       <section class="section portfolio-section" id="portfolio">
         <div class="section-shell">
-          <div class="section-heading reveal">
-            <span class="eyebrow">Portfolio</span>
-            <h2>Progetti ideati per farsi ricordare e funzionare davvero.</h2>
+          <div class="portfolio-heading reveal">
+            <div><span class="eyebrow">Portfolio / 05 progetti</span><h2>Progetti, su misura.</h2></div>
+            <p>Dall’e-commerce al sito professionale. Scegli un progetto per scoprire design e funzionalità.</p>
           </div>
-
-          <div class="portfolio-desktop">
-            <a class="site-preview reveal" href="https://01121987r-beep.github.io/pizzeria-gourmet/" target="_blank" rel="noreferrer">
-              <div class="site-preview-media">
-                <img src="images/portfolio-pizzeria-gourmet.jpg" alt="Homepage sito Pizzeria Gourmet" />
-              </div>
-              <div class="site-preview-copy">
-                <span>Ristorazione</span>
-                <h3>Pizzeria Gourmet</h3>
-                <p>Sito per pizzeria sviluppato in HTML, CSS e JavaScript con esperienza immersiva, prenotazione guidata e chatbot AI che accompagna il cliente nelle richieste principali. Struttura SEO-friendly, performance ottimizzate e contenuti pensati per aumentare la visibilità locale e le conversioni da mobile e desktop.</p>
-              </div>
-            </a>
-
-            <a class="site-preview reveal delay-1" href="https://www.wishtravel.it/" target="_blank" rel="noreferrer">
-              <div class="site-preview-media">
-                <img src="images/portfolio-wishtravel.jpg" alt="Homepage sito WishTravel" />
-              </div>
-              <div class="site-preview-copy">
-                <span>Travel</span>
-                <h3>WishTravel</h3>
-                <p>Sito travel sviluppato su misura con frontend in HTML, CSS e JavaScript e backend in Node.js con pannello gestionale dedicato. Include collegamenti API esterne, sistema di ricezione pagamenti e logiche automatiche che nascondono le pagine/aree senza contenuti inseriti dal cliente, mantenendo il sito sempre pulito, aggiornato e ottimizzato SEO.</p>
-              </div>
-            </a>
-
-            <a class="site-preview reveal delay-2" href="https://www.vellutobeautylab.it/" target="_blank" rel="noreferrer">
-              <div class="site-preview-media">
-                <img src="images/portfolio-vellutobeautylab.jpg" alt="Homepage sito Velluto Beauty Lab" />
-              </div>
-              <div class="site-preview-copy">
-                <span>Beauty</span>
-                <h3>Velluto Beauty Lab</h3>
-                <p>Sito multipagina interattivo per beauty lab, realizzato in HTML, CSS e JavaScript, con percorsi chiari tra trattamenti, servizi e aree informative. Include form contatti per acquisizione lead, contenuti ottimizzati SEO e una struttura responsive pensata per comunicare in modo elegante e professionale su ogni dispositivo.</p>
-              </div>
-            </a>
-
-            <a class="site-preview reveal delay-3" href="https://www.antoniotizianosergi.it/" target="_blank" rel="noreferrer">
-              <div class="site-preview-media">
-                <img src="images/portfolio-antoniotizianosergi.jpg" alt="Homepage sito Antonio Tiziano Sergi" />
-              </div>
-              <div class="site-preview-copy">
-                <span>Analogista</span>
-                <h3>Antonio Tiziano Sergi</h3>
-                <p>Sito portfolio professionale per specialista analogista, sviluppato con HTML, CSS e JavaScript per valorizzare autorevolezza, metodo e servizi offerti. Progettato con attenzione SEO on-page, gerarchia dei contenuti e call to action strategiche, per migliorare il posizionamento e trasformare le visite in richieste di consulenza.</p>
-              </div>
-            </a>
-          </div>
-
-          <div class="portfolio-grid portfolio-mobile">
-            <article class="project-card large reveal">
-              <a class="project-media" href="https://01121987r-beep.github.io/pizzeria-gourmet/" target="_blank" rel="noreferrer">
-                <img src="images/portfolio-pizzeria-gourmet.jpg" alt="Anteprima sito Pizzeria Gourmet" />
-                <div class="project-overlay compact">
-                  <span>Ristorazione</span>
-                  <h3>Pizzeria Gourmet</h3>
-                  <p>Homepage d'impatto con visual full-width, narrazione del brand e call to action orientate alla prenotazione.</p>
-                  <div class="project-tags"><span>Motion</span><span>Branding</span><span>Conversion</span></div>
-                </div>
+          <div class="project-gallery" data-project-gallery>
+            <div class="project-tabs" aria-label="Scegli un progetto" hidden>
+              <button class="project-tab" type="button" id="project-tab-gblind" data-project-target="project-gblind"><span class="project-tab-number">01</span><span><strong>G-Blind</strong><small>E-commerce</small></span></button>
+              <button class="project-tab" type="button" id="project-tab-wishtravel" data-project-target="project-wishtravel"><span class="project-tab-number">02</span><span><strong>WishTravel</strong><small>Travel</small></span></button>
+              <button class="project-tab" type="button" id="project-tab-velluto" data-project-target="project-velluto"><span class="project-tab-number">03</span><span><strong>Velluto Beauty Lab</strong><small>Beauty</small></span></button>
+              <button class="project-tab" type="button" id="project-tab-sergi" data-project-target="project-sergi"><span class="project-tab-number">04</span><span><strong>Antonio Tiziano Sergi</strong><small>Analogista</small></span></button>
+              <button class="project-tab" type="button" id="project-tab-teresa" data-project-target="project-teresa"><span class="project-tab-number">05</span><span><strong>Teresa Criniti</strong><small>Psicoterapia</small></span></button>
+            </div>
+            <article class="project-study" id="project-gblind" aria-labelledby="project-title-gblind">
+              <a class="study-preview" href="https://www.gblind.it/" target="_blank" rel="noopener noreferrer" aria-label="Visita G-Blind (nuova scheda)">
+                <div class="study-browser" aria-hidden="true"><span>● ● ●</span><span>gblind.it</span></div>
+                <img src="images/portfolio-gblind.jpg" alt="Homepage reale di G-Blind" loading="lazy" />
+                <span class="study-open">Esplora il sito online</span>
               </a>
+              <div class="study-copy">
+                <span class="eyebrow">E-commerce · Collezionabili</span>
+                <h3 id="project-title-gblind">G-Blind</h3>
+                <h4>Un negozio online con personalità.</h4>
+                <p>E-commerce su misura per blind box, figure e peluche da collezione. L’identità visiva giocosa, l’introduzione animata e il catalogo filtrabile accompagnano il visitatore dalla scoperta dei prodotti al carrello e al checkout.</p>
+                <p>Il frontend in HTML, CSS e JavaScript è integrato con un backend Node.js e un pannello per gestire prodotti, disponibilità e ordini. L’assistente G-Buddy facilita le richieste e il passaggio all’operatore; pagine prodotto, dati strutturati e immagini ottimizzate curano la visibilità sui motori di ricerca.</p>
+                <ul class="study-tags" aria-label="Tecnologie e caratteristiche"><li>HTML / CSS / JS</li><li>Node.js</li><li>E-commerce</li><li>SEO</li></ul>
+                <a class="study-link" href="https://www.gblind.it/" target="_blank" rel="noopener noreferrer">Visita gblind.it</a>
+              </div>
             </article>
-
-            <article class="project-card small reveal delay-1">
-              <a class="project-media" href="https://www.wishtravel.it/" target="_blank" rel="noreferrer">
-                <img src="images/portfolio-wishtravel.jpg" alt="Anteprima sito WishTravel" />
-                <div class="project-overlay compact">
-                  <span>Travel</span>
-                  <h3>WishTravel</h3>
-                  <p>Sito agenzia viaggi con offerte in evidenza e percorsi pensati per convertire visite in richieste.</p>
-                  <div class="project-tags"><span>Travel UX</span><span>SEO</span><span>Lead Generation</span></div>
-                </div>
+            <article class="project-study" id="project-wishtravel" aria-labelledby="project-title-wishtravel">
+              <a class="study-preview" href="https://www.wishtravel.it/" target="_blank" rel="noopener noreferrer" aria-label="Visita WishTravel (nuova scheda)">
+                <div class="study-browser" aria-hidden="true"><span>● ● ●</span><span>wishtravel.it</span></div>
+                <img src="images/portfolio-wishtravel.jpg" alt="Homepage reale di WishTravel" loading="lazy" />
+                <span class="study-open">Esplora il sito online</span>
               </a>
+              <div class="study-copy">
+                <span class="eyebrow">Travel · Piattaforma su misura</span>
+                <h3 id="project-title-wishtravel">WishTravel</h3>
+                <h4>Viaggi e contenuti, gestiti in autonomia.</h4>
+                <p>Sito per agenzia di viaggi sviluppato intorno alle esigenze del cliente: una presentazione coinvolgente delle proposte e percorsi chiari per passare dall’ispirazione alla richiesta di informazioni.</p>
+                <p>Frontend in HTML, CSS e JavaScript e backend Node.js con pannello gestionale dedicato, per aggiornare i contenuti in autonomia. Il progetto integra API esterne e ricezione dei pagamenti; le sezioni senza contenuti vengono nascoste automaticamente. Layout responsive e struttura SEO completano un sito pensato per restare ordinato e facile da gestire.</p>
+                <ul class="study-tags" aria-label="Tecnologie e caratteristiche"><li>HTML / CSS / JS</li><li>Node.js</li><li>API</li><li>SEO</li></ul>
+                <a class="study-link" href="https://www.wishtravel.it/" target="_blank" rel="noopener noreferrer">Visita wishtravel.it</a>
+              </div>
             </article>
-
-            <article class="project-card small reveal delay-2">
-              <a class="project-media" href="https://www.vellutobeautylab.it/" target="_blank" rel="noreferrer">
-                <img src="images/portfolio-vellutobeautylab.jpg" alt="Anteprima sito Velluto Beauty Lab" />
-                <div class="project-overlay compact">
-                  <span>Beauty</span>
-                  <h3>Velluto Beauty Lab</h3>
-                  <p>Sito beauty premium con identità elegante, presentazione servizi chiara e focus sul contatto diretto.</p>
-                  <div class="project-tags"><span>Luxury UI</span><span>Brand Story</span><span>Lead Form</span></div>
-                </div>
+            <article class="project-study" id="project-velluto" aria-labelledby="project-title-velluto">
+              <a class="study-preview" href="https://www.vellutobeautylab.it/" target="_blank" rel="noopener noreferrer" aria-label="Visita Velluto Beauty Lab (nuova scheda)">
+                <div class="study-browser" aria-hidden="true"><span>● ● ●</span><span>vellutobeautylab.it</span></div>
+                <img src="images/portfolio-vellutobeautylab.jpg" alt="Homepage reale di Velluto Beauty Lab" loading="lazy" />
+                <span class="study-open">Esplora il sito online</span>
               </a>
+              <div class="study-copy">
+                <span class="eyebrow">Beauty · Sito multipagina</span>
+                <h3 id="project-title-velluto">Velluto Beauty Lab</h3>
+                <h4>Un’esperienza digitale curata come il brand.</h4>
+                <p>Sito multipagina per un beauty lab, con un’identità elegante e percorsi dedicati a trattamenti, servizi e presentazione dell’attività. La navigazione organizza le informazioni per aiutare il visitatore a trovare il servizio più adatto.</p>
+                <p>Sviluppato in HTML, CSS e JavaScript, include interazioni, form di contatto e inviti all’azione che facilitano la richiesta di informazioni. Contenuti e gerarchie sono curati per la SEO; il layout responsive mantiene immagini, testi e moduli leggibili e utilizzabili su desktop e smartphone.</p>
+                <ul class="study-tags" aria-label="Tecnologie e caratteristiche"><li>HTML / CSS / JS</li><li>UI Design</li><li>Responsive</li><li>SEO</li></ul>
+                <a class="study-link" href="https://www.vellutobeautylab.it/" target="_blank" rel="noopener noreferrer">Visita vellutobeautylab.it</a>
+              </div>
             </article>
-
-            <article class="project-card wide reveal delay-3">
-              <a class="project-media" href="https://www.antoniotizianosergi.it/" target="_blank" rel="noreferrer">
-                <img src="images/portfolio-antoniotizianosergi.jpg" alt="Anteprima sito Antonio Tiziano Sergi" />
-                <div class="project-overlay compact">
-                  <span>Analogista</span>
-                  <h3>Antonio Tiziano Sergi</h3>
-                  <p>Sito professionale per analogista con posizionamento autorevole e percorsi orientati alla consulenza.</p>
-                  <div class="project-tags"><span>Brand Positioning</span><span>Authority</span><span>Lead Form</span></div>
-                </div>
+            <article class="project-study" id="project-sergi" aria-labelledby="project-title-sergi">
+              <a class="study-preview" href="https://www.antoniotizianosergi.it/" target="_blank" rel="noopener noreferrer" aria-label="Visita Antonio Tiziano Sergi (nuova scheda)">
+                <div class="study-browser" aria-hidden="true"><span>● ● ●</span><span>antoniotizianosergi.it</span></div>
+                <img src="images/portfolio-antoniotizianosergi.jpg" alt="Homepage reale di Antonio Tiziano Sergi" loading="lazy" />
+                <span class="study-open">Esplora il sito online</span>
               </a>
+              <div class="study-copy">
+                <span class="eyebrow">Analogista · Sito professionale</span>
+                <h3 id="project-title-sergi">Antonio Tiziano Sergi</h3>
+                <h4>Metodo e professionalità, in primo piano.</h4>
+                <p>Portfolio professionale per uno specialista analogista: il sito presenta la persona, il metodo e gli ambiti di intervento attraverso una struttura chiara, progettata per comunicare autorevolezza e accompagnare verso la richiesta di consulenza.</p>
+                <p>Realizzato in HTML, CSS e JavaScript, combina un’interfaccia responsive, immagini personali e contenuti organizzati per una lettura semplice. Titoli, metadati e gerarchia delle informazioni sono curati per la SEO on-page; i collegamenti ai contatti rendono immediato il passaggio dalla visita al dialogo con il professionista.</p>
+                <ul class="study-tags" aria-label="Tecnologie e caratteristiche"><li>HTML / CSS / JS</li><li>Portfolio</li><li>Responsive</li><li>SEO</li></ul>
+                <a class="study-link" href="https://www.antoniotizianosergi.it/" target="_blank" rel="noopener noreferrer">Visita antoniotizianosergi.it</a>
+              </div>
+            </article>
+            <article class="project-study" id="project-teresa" aria-labelledby="project-title-teresa">
+              <a class="study-preview" href="https://www.teresacrinitipsicologa.it/" target="_blank" rel="noopener noreferrer" aria-label="Visita Teresa Criniti (nuova scheda)">
+                <div class="study-browser" aria-hidden="true"><span>● ● ●</span><span>teresacrinitipsicologa.it</span></div>
+                <img src="images/portfolio-teresa-criniti.jpg" alt="Homepage reale di Teresa Criniti" loading="lazy" />
+                <span class="study-open">Esplora il sito online</span>
+              </a>
+              <div class="study-copy">
+                <span class="eyebrow">Psicoterapia · Sito professionale</span>
+                <h3 id="project-title-teresa">Teresa Criniti</h3>
+                <h4>Una presenza online che accoglie e orienta.</h4>
+                <p>Sito per una psicologa e psicoterapeuta ad Asti e online, con un linguaggio visivo rassicurante, fotografie della professionista e sezioni dedicate ad approccio, percorsi e studio. Gli approfondimenti interattivi permettono di esplorare le aree di intervento senza appesantire la navigazione.</p>
+                <p>Frontend in HTML, CSS e JavaScript, con moduli di richiesta colloquio gestiti in PHP, scelta del canale di contatto e gestione dei consensi. SEO locale, dati strutturati, immagini responsive e contenuti ben organizzati aiutano a presentare l’attività e a rendere semplice il primo contatto da qualsiasi dispositivo.</p>
+                <ul class="study-tags" aria-label="Tecnologie e caratteristiche"><li>HTML / CSS / JS</li><li>PHP</li><li>UI Design</li><li>SEO</li></ul>
+                <a class="study-link" href="https://www.teresacrinitipsicologa.it/" target="_blank" rel="noopener noreferrer">Visita teresacrinitipsicologa.it</a>
+              </div>
             </article>
           </div>
         </div>
@@ -603,7 +586,7 @@
           </div>
 
           <div class="testimonial-slider reveal delay-1">
-            <button class="slider-arrow prev" type="button" aria-label="Recensione precedente">‹</button>
+            <button class="slider-control prev" type="button" aria-label="Recensione precedente">&lt;</button>
             <div class="testimonial-track">
               <article class="testimonial-card is-active">
                 <p>“Professionalità, pazienza, disponibilità contraddistinguono Demian! Ha creato il nostro sito programmandolo perfettamente secondo le nostre esigenze, dandoci anche dei suggerimenti molto utili. Ha fatto un lavoro molto complesso, il sito non doveva essere una semplice vetrina ma un e - commerce a tutti gli effetti con un pannello utilizzabile da noi in autonomia per il caricamento dei servizi sul sito e la gestione. Lo consiglio vivamente!”</p>
@@ -622,8 +605,20 @@ Si vede che è un professionale: disponibile, competente. Lo consiglio vivamente
                 <strong>Marina</strong>
                 <span>Specialista in logistica</span>
               </article>
+              <article class="testimonial-card">
+                <p>“Davvero soddisfatta! In poco tempo e con grande professionalità ha creato un sito meraviglioso che risponde pienamente a quello che cercavo. Oltre le mie aspettative ! Bravissimo Demian.”</p>
+                <strong>Vittoria Rescigno</strong>
+                <span>G-blind</span>
+              </article>
+              <article class="testimonial-card">
+                <p>“Sono stata contattata da Demian e fin da subito mi ha trasmesso grande professionalità. Si percepisce immediatamente che conosce molto bene il suo lavoro, grazie alla sua preparazione, esperienza e competenza.</p>
+                <p>Ho scelto di affidargli la realizzazione del mio sito e sono rimasta davvero soddisfatta del risultato. Oltre a offrire un servizio di ottima qualità, propone prezzi molto competitivi e, cosa per me altrettanto importante, è sempre stato gentile, disponibile e attento alle mie esigenze.</p>
+                <p>Ha seguito ogni dettaglio con grande precisione, ascoltando le mie richieste e mostrando sempre molta cura nel lavoro. Una persona seria, competente e affidabile, che consiglio”</p>
+                <strong>Dott.ssa Teresa Criniti</strong>
+                <span>Psicologa e Psicoterapeuta</span>
+              </article>
             </div>
-            <button class="slider-arrow next" type="button" aria-label="Recensione successiva">›</button>
+            <button class="slider-control next" type="button" aria-label="Recensione successiva">&gt;</button>
           </div>
         </div>
       </section>
@@ -780,6 +775,6 @@ Si vede che è un professionale: disponibile, competente. Lo consiglio vivamente
       </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=20261011-8"></script>
   </body>
 </html>

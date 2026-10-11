@@ -4,8 +4,8 @@ const mobileNav = document.querySelector('.mobile-nav');
 const revealItems = document.querySelectorAll('.reveal');
 const qualityMetrics = document.querySelectorAll('.quality-metric');
 const testimonialCards = document.querySelectorAll('.testimonial-card');
-const prevBtn = document.querySelector('.slider-arrow.prev');
-const nextBtn = document.querySelector('.slider-arrow.next');
+const prevBtn = document.querySelector('.slider-control.prev');
+const nextBtn = document.querySelector('.slider-control.next');
 const forms = document.querySelectorAll('.contact-form');
 const modal = document.querySelector('#contactModal');
 const modalOpeners = document.querySelectorAll('[data-open-contact-modal="true"]');
@@ -24,6 +24,79 @@ const contactEmail = '01121987r@gmail.com';
 const FORM_DELIVERY_MODE = 'formsubmit'; // 'mailto' | 'formsubmit'
 const formSubmitEndpoint = `https://formsubmit.co/ajax/${contactEmail}`;
 let activeIndex = 0;
+let modalTrigger = null;
+
+document.querySelectorAll('[data-project-gallery]').forEach((gallery) => {
+  const tabList = gallery.querySelector('.project-tabs');
+  const tabs = [...gallery.querySelectorAll('[data-project-target]')];
+  const panels = [...gallery.querySelectorAll('.project-study')];
+  if (!tabList || !tabs.length || tabs.length !== panels.length) return;
+
+  const activateProject = (index, focus = false) => {
+    tabs.forEach((tab, tabIndex) => {
+      const selected = tabIndex === index;
+      tab.setAttribute('aria-selected', String(selected));
+      tab.tabIndex = selected ? 0 : -1;
+      panels[tabIndex].hidden = !selected;
+    });
+    const image = panels[index].querySelector('img');
+    if (image) image.loading = 'eager';
+    if (focus) tabs[index].focus({ preventScroll: true });
+  };
+
+  tabList.setAttribute('role', 'tablist');
+  tabs.forEach((tab, index) => {
+    tab.setAttribute('role', 'tab');
+    tab.setAttribute('aria-controls', tab.dataset.projectTarget);
+    panels[index].setAttribute('role', 'tabpanel');
+    panels[index].setAttribute('aria-labelledby', tab.id);
+    panels[index].tabIndex = 0;
+    tab.addEventListener('click', () => activateProject(index));
+    tab.addEventListener('keydown', (event) => {
+      let nextIndex;
+      if (event.key === 'ArrowRight') nextIndex = (index + 1) % tabs.length;
+      if (event.key === 'ArrowLeft') nextIndex = (index - 1 + tabs.length) % tabs.length;
+      if (event.key === 'Home') nextIndex = 0;
+      if (event.key === 'End') nextIndex = tabs.length - 1;
+      if (nextIndex === undefined) return;
+      event.preventDefault();
+      activateProject(nextIndex, true);
+    });
+  });
+
+  // All projects stay readable if JavaScript is unavailable.
+  activateProject(0);
+  gallery.classList.add('is-enhanced');
+  tabList.hidden = false;
+});
+
+// Keep keyboard navigation inside the active dialog and restore its entry point.
+document.addEventListener('click', (event) => {
+  const opener = event.target.closest('[data-open-contact-modal], [data-open-call-modal]');
+  if (opener) modalTrigger = opener;
+  const closer = event.target.closest('[data-close-contact-modal], [data-close-call-modal], [data-close-thanks-modal]');
+  if (closer && !document.querySelector('.modal.is-open')) modalTrigger?.focus();
+});
+document.addEventListener('keydown', (event) => {
+  const dialog = document.querySelector('.modal.is-open .modal-dialog');
+  if (!dialog) return;
+  if (event.key === 'Escape') {
+    requestAnimationFrame(() => modalTrigger?.focus());
+    return;
+  }
+  if (event.key !== 'Tab') return;
+  const controls = [...dialog.querySelectorAll('a[href], button, input, textarea, select, [tabindex="0"]')]
+    .filter((control) => !control.disabled && control.getClientRects().length);
+  const first = controls[0];
+  const last = controls[controls.length - 1];
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last?.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first?.focus();
+  }
+});
 
 const closeMenu = () => {
   if (!header || !menuToggle) return;
@@ -341,6 +414,7 @@ const showSlide = (index) => {
   if (!testimonialCards.length) return;
   activeIndex = (index + testimonialCards.length) % testimonialCards.length;
   testimonialCards.forEach((card, cardIndex) => {
+    card.hidden = cardIndex !== activeIndex;
     card.classList.toggle('is-active', cardIndex === activeIndex);
   });
 };
@@ -613,3 +687,65 @@ const createCookieBanner = () => {
 };
 
 createCookieBanner();
+
+const siteIntro = document.querySelector('.site-intro');
+const introMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+if (siteIntro && !introMotion.matches) {
+  const entryFocus = document.activeElement;
+  const background = [...document.body.children]
+    .filter((element) => element !== siteIntro && !['SCRIPT', 'STYLE'].includes(element.tagName))
+    .map((element) => ({ element, inert: element.inert }));
+  let finished = false;
+  let exitTimer;
+  let progressFrame;
+  const progressFill = siteIntro.querySelector('.intro-track span');
+  const progressCounter = siteIntro.querySelector('.intro-progress');
+  const progressDuration = 2800;
+  let progressStart;
+  // One clock drives both the percentage and the fill, so they cannot drift.
+  const advanceProgress = (timestamp) => {
+    if (finished) return;
+    progressStart ??= timestamp;
+    const progress = Math.min((timestamp - progressStart) / progressDuration, 1);
+    progressFill.style.transform = `scaleX(${progress})`;
+    progressCounter.textContent = `${Math.floor(progress * 100)}%`;
+    if (progress < 1) progressFrame = requestAnimationFrame(advanceProgress);
+  };
+  const finishIntro = () => {
+    siteIntro.hidden = true;
+    document.body.classList.remove('intro-playing');
+    background.forEach(({ element, inert }) => { element.inert = inert; });
+    document.removeEventListener('keydown', introKeys);
+    introMotion.removeEventListener('change', leaveIntro);
+    if (siteIntro.contains(document.activeElement)) {
+      const destination = entryFocus !== document.body ? entryFocus : document.querySelector('.brand');
+      destination?.focus({ preventScroll: true });
+    }
+  };
+  const leaveIntro = () => {
+    if (finished) return;
+    finished = true;
+    clearTimeout(exitTimer);
+    cancelAnimationFrame(progressFrame);
+    siteIntro.classList.add('is-leaving');
+    window.setTimeout(finishIntro, introMotion.matches ? 0 : 480);
+  };
+  const introKeys = (event) => {
+    if (event.key === 'Escape') leaveIntro();
+    if (event.key === 'Tab') {
+      event.preventDefault();
+      siteIntro.querySelector('button').focus({ preventScroll: true });
+    }
+  };
+  // The page stays usable without JavaScript or with reduced motion enabled.
+  background.forEach(({ element }) => { element.inert = true; });
+  document.body.classList.add('intro-playing');
+  siteIntro.hidden = false;
+  progressFrame = requestAnimationFrame(advanceProgress);
+  siteIntro.querySelector('button').focus({ preventScroll: true });
+  siteIntro.querySelector('button').addEventListener('click', leaveIntro, { once: true });
+  document.addEventListener('keydown', introKeys);
+  introMotion.addEventListener('change', leaveIntro);
+  // Keep the completed identity visible for two seconds before revealing the site.
+  exitTimer = window.setTimeout(leaveIntro, 4800);
+}
