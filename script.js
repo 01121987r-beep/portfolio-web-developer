@@ -42,6 +42,13 @@ document.querySelectorAll('[data-project-gallery]').forEach((gallery) => {
     const image = panels[index].querySelector('img');
     if (image) image.loading = 'eager';
     if (focus) tabs[index].focus({ preventScroll: true });
+    if (tabList.scrollWidth > tabList.clientWidth) {
+      const listBounds = tabList.getBoundingClientRect();
+      const tabBounds = tabs[index].getBoundingClientRect();
+      if (tabBounds.left < listBounds.left || tabBounds.right > listBounds.right) {
+        tabList.scrollTo({ left: tabList.scrollLeft + tabBounds.left - listBounds.left - 4, behavior: 'auto' });
+      }
+    }
   };
 
   tabList.setAttribute('role', 'tablist');
@@ -690,7 +697,26 @@ createCookieBanner();
 
 const siteIntro = document.querySelector('.site-intro');
 const introMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-if (siteIntro && !introMotion.matches) {
+const languageIntroKey = 'demian_language_navigation';
+let skipLanguageIntro = false;
+try {
+  const navigation = JSON.parse(sessionStorage.getItem(languageIntroKey) || 'null');
+  sessionStorage.removeItem(languageIntroKey);
+  skipLanguageIntro = navigation?.path === window.location.pathname && Date.now() - navigation.time < 30000;
+} catch {
+  // Storage restrictions must not prevent access to either language.
+}
+document.querySelectorAll('.lang-switch a').forEach((link) => {
+  link.addEventListener('click', (event) => {
+    if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    try {
+      sessionStorage.setItem(languageIntroKey, JSON.stringify({ path: new URL(link.href).pathname, time: Date.now() }));
+    } catch {
+      // Language navigation still works if session storage is unavailable.
+    }
+  });
+});
+if (siteIntro && !introMotion.matches && !skipLanguageIntro) {
   const entryFocus = document.activeElement;
   const background = [...document.body.children]
     .filter((element) => element !== siteIntro && !['SCRIPT', 'STYLE'].includes(element.tagName))
