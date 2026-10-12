@@ -1017,6 +1017,28 @@ textarea {
   .pricing-card .pricing-badge {
     margin-top: 0;
   }
+
+  @supports (grid-template-rows: subgrid) {
+    .pricing-card {
+      display: grid;
+      grid-row: span 4;
+      grid-template-rows: subgrid;
+      row-gap: 0;
+    }
+
+    .pricing-card > .pricing-target:not(.pricing-included) {
+      margin-bottom: 0;
+    }
+
+    .pricing-card .pricing-included {
+      margin-top: 24px;
+    }
+
+    .pricing-card .pricing-badge {
+      justify-self: start;
+      align-self: end;
+    }
+  }
 }
 
 .pricing-terms h3 {
