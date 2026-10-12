@@ -1005,6 +1005,20 @@ textarea {
   margin-bottom: 20px;
 }
 
+@media (min-width: 761px) {
+  .pricing-card > .pricing-target:not(.pricing-included) {
+    margin-bottom: 24px;
+  }
+
+  .pricing-card .pricing-included {
+    margin-top: auto;
+  }
+
+  .pricing-card .pricing-badge {
+    margin-top: 0;
+  }
+}
+
 .pricing-terms h3 {
   margin: 0 0 10px;
   font-family: "Space Grotesk", sans-serif;
